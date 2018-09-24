@@ -1,4 +1,4 @@
-<?php 
+<?  php 
 
     $page_title = "BACS 350 - Solutions";
 
@@ -48,7 +48,16 @@
             <a href="10">10. Testing</a>
         </li> 
         <li>
-            <a href="13">13. Apps</a>
+            <a href="11">11. Logging</a>
+        </li>
+        <li>
+            <a href="12">12. Apache</a>
+        </li>
+        <li>
+            <a href="13">13. App Planning</a>
+        </li>
+        <li>
+            <a href="exam1">Exam - Contact Manager App</a>
         </li>
     </ul>
 
