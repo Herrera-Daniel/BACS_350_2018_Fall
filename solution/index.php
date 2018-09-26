@@ -1,15 +1,11 @@
-<?  php 
+<?php 
 
     $page_title = "BACS 350 - Solutions";
-
     include "../header.php"; 
 
 ?>
 
-    <!--  Your code goes here -->
-    
     <h1>BACS 350 - Solutions</h1>
-
     
     <p>All of the solutions to the projects in BACS 350 teach important skills.</p>
    
@@ -58,6 +54,9 @@
         </li>
         <li>
             <a href="exam1">Exam - Contact Manager App</a>
+        </li>
+        <li>
+            <a href="14">14. MVC Pattern</a>
         </li>
     </ul>
 

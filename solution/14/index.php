@@ -19,14 +19,10 @@
             <li><a href="step-3">Step 3 - CRUD</a></li>
             <li><a href="step-4">Step 4 - Views</a></li>
             <li><a href="step-5">Step 5 - Controller</a></li>
-            <li><a href="step-6">Step 5 - Testing</a></li>
+            <li><a href="step-6">Step 6 - Testing</a></li>
         </ul>
 
     ';
-
-
-    // Show links for page testing
-//    require 'test.php';
 
 
     // End the page

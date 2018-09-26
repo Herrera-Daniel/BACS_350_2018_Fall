@@ -54,8 +54,8 @@
 
     // Attempt to connect
     require_once 'subscriber_db.php';
-    $db = local_connect();
-    //  $db =  remote_connect();
+//    $db = local_connect();
+    $db =  remote_connect();
 
     list_subscribers ();
 
