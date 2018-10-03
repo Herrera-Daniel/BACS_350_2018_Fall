@@ -1,24 +1,21 @@
 <?php
 
-    // Form the DB Connection string
-    function subscribers_db_string() {
+// Local Host Database settings
+    function local_connect() {
 
+        $host = 'localhost';
         $dbname = 'subscribers';
-        $db_connect = "mysql:host=localhost;dbname=$dbname";
-        return $db_connect;
+        $username = 'root';
+        $password = '';
+        $db_connect = "mysql:host=$host;dbname=$dbname";
+        return subscribers_connect($db_connect, $username, $password);
 
     }
 
-
     // Open the database or die
-    function subscribers_connect() {
+    function subscribers_connect($db_connect, $username, $password) {
 
-        $username = 'root';
-        $password = '';
-        $db_connect = subscribers_db_string();
-
-        echo "<h2>DB Connection</h2>" .
-            "<p>Connect String:  $db_connect, $username, $password</p>";
+        //        echo "<h2>DB Connection</h2><p>Connect String:  $db_connect, $username, $password</p>";
 
         try {
             $db = new PDO($db_connect, $username, $password);
@@ -32,6 +29,19 @@
 
     }
 
-    $db = subscribers_connect();
+
+    // Query for all subscribers
+    function query_subscribers () {
+
+        $query = "SELECT * FROM subscribers";
+        global $db;
+        $statement = $db->prepare($query);
+        $statement->execute();
+        return $statement->fetchAll();
+
+    }
+
+
+   
 
 ?>

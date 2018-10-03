@@ -2,8 +2,7 @@
 
     // Connect to the database
     require_once 'subscriber_db.php';
-    $db = local_connect();
-    //  $db =  remote_connect();
+    $db = subscribers_connect();
 
 
     // Pick out the inputs
@@ -12,6 +11,6 @@
 
 
     // Add record
-    add_subscriber ($name, $email, 'index.php');
+    add_subscriber ($db, $name, $email, 'index.php');
 
 ?>

@@ -74,6 +74,9 @@
             <li>
                 <a href="17">17. Dynamic List</a> - Associative arrays in memory.
             </li>
+            <li>
+                <a href="18/">18. App Milestones</a> - Steps to build an app.
+            </li>
             <!--
             <li>
                 <a href="18">18. Bear Notes</a> - .

@@ -1,16 +1,17 @@
 <?php
 
     // Start the page
-    require_once '../views.php';
+    require_once 'views.php';
 
-    $page_title = 'MVC Pattern - Step 3';
-    begin_page($page_title);
+    $site_title = 'BACS 350 - Demo Server';
+    $page_title = 'MVC Pattern';
+    begin_page($site_title, $page_title);
 
 
     // Page Content
     echo '
-        <p><a href="..">MVC Pattern</a></p>
-        <h2>Step 3 - Database CRUD</h2>
+        <p><a href="index.php">MVC Pattern Demo</a></p>
+        <h2>Database CRUD</h2>
 
         <h3>DB Connect Pattern</h3>
         <p>
@@ -30,7 +31,7 @@
             There are two separate connection functions to connect using the appropriate options for
             the database server that you are using.
         </p>
-        <pre>
+        <pre class="card">
             Usage:
                 // Use the subscriber database
                 require_once \'subscriber_db.php\';
@@ -43,34 +44,13 @@
         </pre>
 
         <h3>Source Code</h3>
-        <p>Study the source code in "solution/14/step-3" to understand how to define standard database operations.</p>
+        <p>Study the source code in "solution/14" to understand how to define standard database operations.</p>
         <p>Make sure that you have pulled fresh changes from <b>Mark-Seaman/BACS_350_2018_Fall</b> repo.</p>
 
 
         <h3>Connect to Local Database</h3>
 
     ';
-
-
-    // Attempt to connect
-    require_once 'subscriber_db.php';
-//    $db = local_connect();
-    $db =  remote_connect();
-
-    list_subscribers ();
-
-
-    // Sign Up Form
-    echo '<div class="card"><form action="insert.php" method="get">
-
-        <p><label>Name:</label> &nbsp; <input type="text" name="name"></p>
-        <p><label>Email:</label> &nbsp; <input type="text" name="email"></p>
-        <p><input type="submit" value="Sign Up"/></p>
-    </form></div>';
-
-
-    // Show links for page testing
-//    require 'test.php';
 
 
     // End the page
