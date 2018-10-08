@@ -6,11 +6,15 @@
 
     function begin_page($site_title, $page_title) {
 
+        header("Pragma: no-cache");
+        header("Expires: 0");
+        header("Cache-Control: no-store, no-cache, must-revalidate");
+        
         echo '
             <!DOCTYPE html>
             <html lang="en">
                 <head>
-
+        
                     <meta charset="UTF-8">
                     <title>' . $page_title . '</title>
 
@@ -40,7 +44,7 @@
                 </body>
             </html>
         ';
-
+        
     }
 
 ?>

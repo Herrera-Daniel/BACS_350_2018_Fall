@@ -77,14 +77,10 @@
             <li>
                 <a href="18/">18. App Milestones</a> - Steps to build an app.
             </li>
-            <!--
             <li>
-                <a href="18">18. Bear Notes</a> - .
+                <a href="19">19. Objects </a> - Use objects to define app data types.
             </li>
-            <li>
-                <a href="19">19. Template Engine</a> - HTML with Variable insertion.
-            </li>
-            -->
+            
         </ul>
     ';
 
