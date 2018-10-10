@@ -1,15 +1,15 @@
 <?php
 
     // Add a new record
-    function add_subscriber($db, $name, $body) {
+    function add_subscriber($db, $date, $body) {
 
         // Show if insert is successful or not
         try {
 
             // Add database row
-            $query = "INSERT INTO notes (name, body) VALUES (:name, :body);";
+            $query = "INSERT INTO notes (date, body) VALUES (:date, :body);";
             $statement = $db->prepare($query);
-            $statement->bindValue(':name', $name);
+            $statement->bindValue(':date', $date);
             $statement->bindValue(':body', $body);
             $statement->execute();
             $statement->closeCursor();

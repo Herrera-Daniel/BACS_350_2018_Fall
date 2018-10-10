@@ -11,13 +11,13 @@
 
 
     // Pick out the inputs
-    $name  = filter_input(INPUT_POST, 'name');
-    $email = filter_input(INPUT_POST, 'body');
+    $date  = filter_input(INPUT_POST, 'date');
+    $body = filter_input(INPUT_POST, 'body');
 
 
     // Add record
-    if ($subscribers->add ($name, $body)) {
-//      echo '<p><b>Insert successful</b>&nbsp;<a href="index.php">Subscribers</a></p>';
+    if ($subscribers->add ($date, $body)) {
+      //echo '<p><b>Insert successful</b>&nbsp;<a href="index.php">Subscribers</a></p>';
 //      $this->query();
         header("Location: index.php");
     }

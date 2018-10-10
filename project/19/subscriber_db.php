@@ -17,10 +17,10 @@
     function local_connect() {
 
         $host = 'localhost';
-        $dbname = 'notes';
+        $dbname = 'subscribers';
         $username = 'root';
         $password = '';
-        $db_connect = "mysql:host=$host;dbname=$dbname";
+        $db_connect = "mysql:host=localhost;dbname=$dbname";
         return db_connect($db_connect, $username, $password);
 
     }

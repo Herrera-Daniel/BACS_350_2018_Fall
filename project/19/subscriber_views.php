@@ -10,10 +10,10 @@
             <div class="card">
                 <h3>Add Note</h3>
             
-                <form action="insert.php" method="post">
-                    <p><label>Name:</label> &nbsp; <input type="text" name="name"></p>
-                    <p><label>Body:</label> &nbsp; <input type="text" name="body"></p>
-                    <p><input type="submit" value="Enter Note"/></p>
+            <form action="insert.php" method="post">
+                <p><label>Date:</label> &nbsp; <input type="text" name="date"></p>
+                <p><label>Body:</label> &nbsp; <input type="text" name="body"></p>
+                <p><input type="submit" value="Enter Note"/></p>
                 </form>
             </div>
             ';
@@ -34,7 +34,7 @@
                 <ul>
             ';
         foreach ($list as $s) {
-            echo '<li>' . $s['id'] . ', ' . $s['name'] . ', ' . $s['email'] . '</li>';
+            echo '<li>' . $s['id'] . ', ' . $s['date'] . ', ' . $s['body'] . '</li>';
         }
         echo '
                 </ul>

@@ -31,8 +31,8 @@
         }
         
         
-        function add($name, $email) {
-            return add_subscriber ($this->db, $name, $body);
+        function add($date, $body) {
+            return add_subscriber ($this->db, $date, $body);
         }
         
         
