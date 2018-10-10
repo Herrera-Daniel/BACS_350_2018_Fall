@@ -8,8 +8,8 @@
 
 
     // Add new record
-    $name = 'Test User';
-    $email = 'tester@gmail.com';
+    $name = 'Bob Smith';
+    $email = 'bobS@gmail.com';
 
 
     // Add database row

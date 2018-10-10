@@ -1,14 +1,13 @@
 <?php
 
-    // Form the DB Connection string
-    $port = '3306';
-    $dbname = 'uncobacs_subscribers';
-    $db_connect = "mysql:host=localhost:$port;dbname=$dbname";
-    $username = 'uncobacs_350';
-    $password = 'BACS_350';
+$port = '3306';
+$dbname = 'anielhe3_subscribers';
+$db_connect = "mysql:host=localhost:$port;dbname=$dbname";
+$username = 'anielhe3';
+$password = '3Spookie5Me!';
 
     echo "<h1>DB Connection</h1>" .
-        "<p>Connect String:  $db_connect, $username, $password</p>";
+        "<p>Connect String:  $db_connect, $username</p>";
 
 
     // Open the database or die
@@ -19,6 +18,6 @@
         $error_message = $e->getMessage();
         echo "<p>Error: $error_message</p>";
         die();
-    }
+     }
 
 ?>

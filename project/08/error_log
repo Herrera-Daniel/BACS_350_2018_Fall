@@ -1,0 +1,91 @@
+[10-Sep-2018 00:13:29 UTC] PHP Parse error:  syntax error, unexpected '$page_title' (T_VARIABLE) in /home1/anielhe3/public_html/project/08/subscribe.php on line 11
+[10-Sep-2018 00:13:31 UTC] PHP Parse error:  syntax error, unexpected '$page_title' (T_VARIABLE) in /home1/anielhe3/public_html/project/08/subscribe.php on line 11
+[10-Sep-2018 00:13:39 UTC] PHP Parse error:  syntax error, unexpected '$page_title' (T_VARIABLE) in /home1/anielhe3/public_html/project/08/subscribe.php on line 11
+[10-Sep-2018 00:26:16 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home1/anielhe3/public_html/project/08/subscribe.php on line 10
+[10-Sep-2018 00:27:47 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home1/anielhe3/public_html/project/08/subscribe.php on line 10
+[10-Sep-2018 00:27:53 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home1/anielhe3/public_html/project/08/subscribe.php on line 10
+[10-Sep-2018 00:28:02 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home1/anielhe3/public_html/project/08/subscribe.php on line 10
+[10-Sep-2018 00:32:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function kill() in /home1/anielhe3/public_html/project/08/subscribe.php:6
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 6
+[10-Sep-2018 00:35:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function kill() in /home1/anielhe3/public_html/project/08/subscribe.php:6
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 6
+[10-Sep-2018 00:45:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function kill() in /home1/anielhe3/public_html/project/08/subscribe.php:6
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 6
+[10-Sep-2018 00:49:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function kill() in /home1/anielhe3/public_html/project/08/subscribe.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 5
+[10-Sep-2018 00:50:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function kill() in /home1/anielhe3/public_html/project/08/subscribe.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 5
+[10-Sep-2018 00:50:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function kill() in /home1/anielhe3/public_html/project/08/subscribe.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 5
+[10-Sep-2018 00:51:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function kill() in /home1/anielhe3/public_html/project/08/subscribe.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 5
+[10-Sep-2018 00:51:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function kill() in /home1/anielhe3/public_html/project/08/subscribe.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 5
+[10-Sep-2018 00:52:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function kill() in /home1/anielhe3/public_html/project/08/subscribe.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 5
+[10-Sep-2018 00:52:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function kill() in /home1/anielhe3/public_html/project/08/subscribe.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 5
+[10-Sep-2018 00:53:19 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function kill() in /home1/anielhe3/public_html/project/08/subscribe.php:5
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 5
+[10-Sep-2018 00:55:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/anielhe3/public_html/project/08/subscribe.php:16
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 16
+[10-Sep-2018 00:55:59 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/anielhe3/public_html/project/08/subscribe.php:16
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 16
+[10-Sep-2018 00:56:39 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/anielhe3/public_html/project/08/subscribe.php:16
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 16
+[10-Sep-2018 00:57:13 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/anielhe3/public_html/project/08/subscribe.php:16
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 16
+[10-Sep-2018 00:58:46 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/anielhe3/public_html/project/08/subscribe.php:16
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 16
+[10-Sep-2018 00:59:39 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/anielhe3/public_html/project/08/subscribe.php:17
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 17
+[10-Sep-2018 01:00:13 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/anielhe3/public_html/project/08/subscribe.php:17
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 17
+[10-Sep-2018 01:02:07 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/anielhe3/public_html/project/08/subscribe.php:17
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 17
+[10-Sep-2018 20:29:53 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/anielhe3/public_html/project/08/subscribe.php:17
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 17
+[10-Sep-2018 20:47:29 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/anielhe3/public_html/project/08/subscribe.php:17
+Stack trace:
+#0 {main}
+  thrown in /home1/anielhe3/public_html/project/08/subscribe.php on line 17

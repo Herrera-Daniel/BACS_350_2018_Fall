@@ -1,17 +1,13 @@
 <?php
 
-    // Setup a page title variable
     $page_title = "Project #3";
+    include "header.php";
+    echo "<h1>" . $page_title . "</h2>";
+    echo "<p>Help me ... I'm trapped inside this computer.</p>";
+    include "footer.php";
 
-    // Include the page start
-    require 'header.php';
 ?>
-
-    <h2><a href="/bacs_350/index.php">BACS 350 Demos</a></h2>
-
-    <p>This is a demo of a general page template with variables.</p>
-
-    <h2>Test Links</h2>
+<h2>Test Links</h2>
     <ul>
         <li><a href="https://unco-bacs.org/bacs_350/index.php">Class demo server</a></li>
         <li><a href="https://seamansguide.com/guide/PhpApps/Index">Class web server</a></li>
@@ -24,5 +20,15 @@
         <li><a href="Bear3.png">Project #3 - Bear Logo</a></li>
         <li><a href="styles.css">Project #3 - styles.css</a></li>
     </ul>
+	
+	<h1>Variables</h1>
+<p>
+    My Name is
+    <?php echo "Inigo Montoya"; ?>
+<p>
 
-<?php require 'footer.php' ?>
+<?php $first = "Abraham"; $last = "Lincoln" ?>
+<p>
+    My Name is
+    <?php echo $first . $last; ?>
+<p>

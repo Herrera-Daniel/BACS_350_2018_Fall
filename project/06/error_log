@@ -1,0 +1,37 @@
+[31-Aug-2018 20:58:21 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 20:58:21 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 20:58:21 UTC] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 20:58:21 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 12
+[31-Aug-2018 20:58:21 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 12
+[31-Aug-2018 20:58:21 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home1/anielhe3/public_html/project/06/index.php on line 12
+[31-Aug-2018 21:00:40 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:00:40 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:00:40 UTC] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:00:40 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:00:40 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:00:40 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:01:32 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:01:32 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:01:32 UTC] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:01:32 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:01:32 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:01:32 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:01:41 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:01:41 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:01:41 UTC] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:01:41 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:01:41 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:01:41 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:04:13 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:04:13 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:04:13 UTC] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:04:13 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:04:13 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:04:13 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:04:16 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:04:16 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:04:16 UTC] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home1/anielhe3/public_html/project/06/index.php on line 2
+[31-Aug-2018 21:04:16 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:04:16 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home1/anielhe3/public_html/project/06/index.php on line 17
+[31-Aug-2018 21:04:16 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home1/anielhe3/public_html/project/06/index.php on line 17
+[05-Sep-2018 20:42:30 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home1/anielhe3/public_html/project/06/index.php on line 45
