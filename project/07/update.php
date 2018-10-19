@@ -4,16 +4,16 @@
     require_once 'db.php';
 
 
-    echo '<h2>Add Test User</h2>';
+    echo '<h2>Update Test User</h2>';
 
 
-    // Add new record
+    // Data for record
     $name = 'Test User';
     $email = 'tester@gmail.com';
 
 
-    // Add database row
-    $query = "INSERT INTO subscribers (name, email) VALUES (:name, :email);";
+    // Modify database row
+    $query = "UPDATE subscribers SET name = :name, email = :email WHERE id = 1";
 
     $statement = $db->prepare($query);
 

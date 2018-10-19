@@ -1,16 +1,16 @@
 <?php
 
     // Add a new record
-    function add_subscriber($db, $name, $body) {
+    function add_subscriber($db, $name, $email) {
 
         // Show if insert is successful or not
         try {
 
             // Add database row
-            $query = "INSERT INTO notes (name, body) VALUES (:name, :body);";
+            $query = "INSERT INTO subscribers (name, email) VALUES (:name, :email);";
             $statement = $db->prepare($query);
             $statement->bindValue(':name', $name);
-            $statement->bindValue(':body', $body);
+            $statement->bindValue(':email', $email);
             $statement->execute();
             $statement->closeCursor();
             return true;
@@ -28,7 +28,7 @@
     function clear_subscribers($db) {
         
         try {
-            $query = "DELETE FROM notes";
+            $query = "DELETE FROM subscribers";
             $statement = $db->prepare($query);
             $row_count = $statement->execute();
             return true;
@@ -44,7 +44,7 @@
     // Query for all subscribers
     function query_subscribers ($db) {
 
-        $query = "SELECT * FROM notes";
+        $query = "SELECT * FROM subscribers";
         $statement = $db->prepare($query);
         $statement->execute();
         return $statement->fetchAll();
