@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html>
-	<header>
-    <h1><img src="Bear3.png" alt="Bear logo">Lesson 3</h1>
-	</header>
+<html lang="en">
     <head>
-        <link rel="stylesheet" type="text/css" href="styles.css">
-		<title>
-    <?php echo $page_title; ?>
-</title>
 
-<h1>
-    <?php echo $page_title; ?>
-</h1>
+        <meta charset="UTF-8">
+        <title>
+            <?php echo $page_title; ?>
+        </title>
+        <link rel="stylesheet" href="styles.css">
+
     </head>
     <body>
+
+        <header>
+            <h1>
+                <img src="Bear3.png" alt="Bear Logo">
+                <?php echo $page_title; ?>
+            </h1>
+        </header>
         <main>
+

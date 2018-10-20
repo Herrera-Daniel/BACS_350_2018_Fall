@@ -32,7 +32,7 @@
         
         
         function add($name, $email) {
-            return add_subscriber ($this->db, $name, $body);
+            return add_subscriber ($this->db, $name, $email);
         }
         
         
