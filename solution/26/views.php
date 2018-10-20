@@ -1,4 +1,5 @@
 <?php
+    require_once 'files.php';
 
     // article_settings -- Create the HTML page for one article.
     function article_settings($title, $body, $author) {
