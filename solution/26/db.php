@@ -32,7 +32,7 @@ CREATE TABLE subscribers (
     function local_connect() {
 
         $host = 'localhost';
-        $dbname = 'bacs350';
+        $dbname = 'log';
         $username = 'root';
         $password = '';
         $db_connect = "mysql:host=$host;dbname=$dbname";

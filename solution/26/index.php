@@ -58,7 +58,7 @@
     // Handle Database Errors
     
     $host = 'localhost';
-    $dbname = 'bacs350';
+    $dbname = 'log';
     $username = 'root';
     $password = '';
     $db_connect = "mysql:host=$host;dbname=$dbname";
@@ -130,9 +130,9 @@
     // Create main part of page content
     $settings = array(
         "site_title" => "BACS 350 Projects",
-        "page_title" => "Pro", 
+        "page_title" => "Lesson 26", 
         "style"      => 'style.css',
-//        "style"      => 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
+        //"style"      => 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
         "content"    => $content);
 
     echo render_page($settings);
