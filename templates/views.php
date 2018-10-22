@@ -101,13 +101,12 @@
     // render_links -- Create a bullet list of hyperlinks in HTML
     function render_links($list) {
         $s = '<ul>';
-        foreach($list as $i) {
-            $s .= "<li>" . render_link($i, $i) . "</li>";
+        foreach($list as $text => $url) {
+            $s .= "<li>" . render_link($text, $url) . "</li>";
         }
         $s .= '</ul>';
         return $s;
     }
-
 
     // render_link -- Create a hyperlink in HTML
     function render_link($text, $url) {
@@ -119,7 +118,7 @@
     function render_list($list) {
         $s = '<ul>';
         foreach($list as $i) {
-            $s .= render_template('list.html', array('item' => $i));
+            $s .= "<li>$i</li>";
         }
         $s .= '</ul>';
         return $s;

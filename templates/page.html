@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Web Page Template</title>
+
+        <meta charset="UTF-8">
+        <title>{{ page_title }}</title>
+
+        <link rel="stylesheet" href="{{ style }}">
+
     </head>
     <body>
+
+        <header>
+            <img src="Bear.png" alt="Bear Logo"/>
+            <h1>{{ site_title }}</h1>
+            <h2>{{ page_title }}</h2>
+        </header>
         <main>
-            <h1>Web Page Template</h1>
-
-            <img src="Bear3.png">
-
-            <p>This is a simple HTML page.</p>
+            
+            {{ content }}
+            
         </main>
     </body>
 </html>
