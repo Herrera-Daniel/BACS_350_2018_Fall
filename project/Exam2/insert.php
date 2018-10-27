@@ -15,10 +15,10 @@
 
 
     // Add record
-    if ($subscribers->add ($artist, $name, $artwork, $purchase, $description, $review)) {
-      //echo '<p><b>Insert successful</b>&nbsp;<a href="index.php">Subscribers</a></p>';
-//      $this->query();
+    if ($subscribers->add($artist, $name, $artwork, $purchase, $description, $review)) 
+    {
         header("Location: index.php");
+        echo 'Insertion Success';
     }
 
 ?>

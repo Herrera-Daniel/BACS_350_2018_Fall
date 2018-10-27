@@ -1,7 +1,7 @@
 <?php
 
     // Add a new record
-    function add_subscriber($db, $artist, $name, $purchase, $description, $review) {
+    function add_subscriber($db, $artist, $name, $artwork, $purchase, $description, $review) {
 
         // Show if insert is successful or not
         try {

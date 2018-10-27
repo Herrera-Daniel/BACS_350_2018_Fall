@@ -38,7 +38,7 @@
                 <ul>
             ';
         foreach ($list as $s) {
-            echo '<li>' . $s['artist'] . ', ' . $s['name'] . ', ' . $s['artwork'] . ', ' . $s['purchase'] . ', ' . $s['description'] . ', ' . $s['review'] . '</li>';
+            echo '<li>' . $s['artist'] . ', ' . $s['name'] . ', ' .'<a href="'. $s['artwork'] .'">Link To Artwork</a>'. ' , ' .'<a href="'. $s['purchase'] .'">Link To Purchase</a>'. ', ' . $s['description'] . ', ' . $s['review'] . '</li>';
         }
         echo '
                 </ul>
