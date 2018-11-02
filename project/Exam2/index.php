@@ -4,38 +4,28 @@
     // Start the page
     require_once 'views.php';
     require_once 'files.php';
-    require_once 'subscriber.php';
+    require_once 'album.php';
 
 
     // Log the page load
     require_once 'log.php';
     $log->log_page("Exam 2");
 
-
-
-    
-    // Create cards for Page
-
-    // table
-
-    echo '<p><a href="pagelog.php">Page log</a></p>';
-    echo '<p><a href="addalbum.php">Add Album</a></p>';
-
-
-    $content = "";
-
-
-    // Create main part of page content
+    $content = '';
+                
+    //$content .= render_card ("PURCHASE", $message);
     $settings = array(
-        "page_title" => "Exam 2", 
         "site_title" => "Exam 2",
+        "page_title" => "Exam 2 Home", 
         "style"      => 'style.css',
- //       "style"      => 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
         "content"    => $content);
 
     echo render_page($settings);
+    echo '<p><a href="pagelog.php">Page log</a></p>';
+    echo '<p><a href="addalbum.php">Add Album</a></p>';
 
-    $subscribers->show_subscribers();
+    $album->show_albums();
 
 
+    //end_page();
 ?>

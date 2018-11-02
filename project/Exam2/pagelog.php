@@ -3,13 +3,22 @@
     // Start the page
     require_once 'views.php';
  
-    $site_title = 'Exam 2 Log page';
-    $page_title = 'Display Pages loaded';
-    begin_page($site_title, $page_title);
+    $content = '';
+                
+    //$content .= render_card ("PURCHASE", $message);
+    $settings = array(
+        "site_title" => "Exam 2",
+        "page_title" => "Exam 2 Page Log", 
+        "style"      => 'style.css',
+        "content"    => $content);
+
+    echo render_page($settings);
 
 
     // Page Content
     echo '<p><a href="index.php">Exam 2</a></p>';
+    // Clear the list by sending "action" of "clear" to this view
+    echo '<p><a href="pagelog.php?action=clear" class="btn">Clear Log</a></p>';
       
 
     // Handle any actions required
@@ -21,8 +30,7 @@
     $log->show_log();
 
 
-    // Clear the list by sending "action" of "clear" to this view
-    echo '<p><a href="pagelog.php?action=clear" class="btn">Clear Log</a></p>';
+    
 
 
     end_page();

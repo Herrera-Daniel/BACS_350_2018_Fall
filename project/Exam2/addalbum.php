@@ -3,25 +3,33 @@
     // Start the page
     require_once 'views.php';
  
-    $site_title = 'Exam 2';
-    $page_title = 'Add album';
-    begin_page($site_title, $page_title);
+    $content = '';
+                
+    //$content .= render_card ("PURCHASE", $message);
+    $settings = array(
+        "site_title" => "Exam 2",
+        "page_title" => "Exam 2 Add Album", 
+        "style"      => 'style.css',
+        "content"    => $content);
+
+    echo render_page($settings);
 
 
     // Page Content
     echo '<p><a href="index.php">Exam 2</a></p>';
+    // Button to clear
+    echo '<p><a href="delete.php">Reset Albums</a></p>';
 
     
     // Bring in subscribers logic
-    require_once 'subscriber.php';
+    require_once 'album.php';
    
 
     // Show the add form
-    $subscribers->add_form();
+    $album->add_form();
 
 
-    // Button to clear
-    echo '<a href="delete.php">Reset Albums</a>';
+    
 
 
     end_page();
