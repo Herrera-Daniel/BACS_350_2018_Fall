@@ -9,14 +9,14 @@
 
     // Log the page load
     require_once 'log.php';
-    $log->log_page("Exam 2");
+    $log->log_page("App 4");
 
     $content = '';
                 
     //$content .= render_card ("PURCHASE", $message);
     $settings = array(
-        "site_title" => "Exam 2",
-        "page_title" => "Exam 2 Home", 
+        "site_title" => "App 4",
+        "page_title" => "App 4 Home", 
         "style"      => 'style.css',
         "content"    => $content);
 

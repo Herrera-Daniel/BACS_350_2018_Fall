@@ -7,8 +7,8 @@
                 
     //$content .= render_card ("PURCHASE", $message);
     $settings = array(
-        "site_title" => "Exam 2",
-        "page_title" => "Exam 2 Page Log", 
+        "site_title" => "App 4",
+        "page_title" => "App 4 Add Album", 
         "style"      => 'style.css',
         "content"    => $content);
 
@@ -17,17 +17,16 @@
 
     // Page Content
     echo '<p><a href="index.php">Exam 2</a></p>';
-    // Clear the list by sending "action" of "clear" to this view
-    echo '<p><a href="pagelog.php?action=clear" class="btn">Clear Log</a></p>';
-      
+    // Button to clear
+    echo '<p><a href="delete.php">Reset Albums</a></p>';
 
-    // Handle any actions required
-    require_once 'log.php';
-    $log->handle_actions();
     
+    // Bring in subscribers logic
+    require_once 'album.php';
+   
 
-    // Show page history
-    $log->show_log();
+    // Show the add form
+    $album->add_form();
 
 
     

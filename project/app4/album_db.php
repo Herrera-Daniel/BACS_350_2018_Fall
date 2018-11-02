@@ -1,48 +1,33 @@
 <?php
 
-/* --------------------------------------      
-
-SQL for Table
-
--- Create table subscribers: id, name, email --
-
-CREATE TABLE subscribers (
-  id int(3) NOT NULL AUTO_INCREMENT,
-  name varchar(100)  NOT NULL,
-  email varchar(100) NOT NULL,
-  PRIMARY KEY (id)
-);
-
--------------------------------------- */
-
     // Connect to the remote database
-    function remote_connect2() {
+    function remote_connect() {
 
         $port = '3306';
-        $dbname = 'anielhe3_log';
+        $dbname = 'anielhe3_music';
         $db_connect = "mysql:host=localhost:$port;dbname=$dbname";
         $username = 'anielhe3';
         $password = '3Spookie5Me!';
-        return db_connect2($db_connect, $username, $password);
+        return db_connect($db_connect, $username, $password);
 
     }
 
 
     // Local Host Database settings
-    function local_connect2() {
+    function local_connect() {
 
         $host = 'localhost';
-        $dbname = 'log';
+        $dbname = 'music';
         $username = 'root';
         $password = '';
-        $db_connect = "mysql:host=$host;dbname=$dbname";
-        return db_connect2($db_connect, $username, $password);
+        $db_connect = "mysql:host=localhost;dbname=$dbname";
+        return db_connect($db_connect, $username, $password);
 
     }
 
 
     // Open the database or die
-    function db_connect2($db_connect, $username, $password) {
+    function db_connect($db_connect, $username, $password) {
         
 //        echo "<h2>DB Connection</h2><p>Connect String:  $db_connect, $username, $password</p>";
         try {
@@ -59,14 +44,14 @@ CREATE TABLE subscribers (
 
 
     // Open the database or die
-    function connect_database2() {
+    function album_connect() {
         
         $local = ($_SERVER['SERVER_NAME'] == 'localhost');
         if ($local) {
-            return local_connect2();
+            return local_connect();
         } 
         else {
-            return remote_connect2();
+            return remote_connect();
         }
         
     }

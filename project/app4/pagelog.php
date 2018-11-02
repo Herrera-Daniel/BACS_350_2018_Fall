@@ -7,8 +7,8 @@
                 
     //$content .= render_card ("PURCHASE", $message);
     $settings = array(
-        "site_title" => "Exam 2",
-        "page_title" => "Exam 2 Page Log", 
+        "site_title" => "App 4",
+        "page_title" => "App 4 Page Log", 
         "style"      => 'style.css',
         "content"    => $content);
 
