@@ -21,8 +21,10 @@
 
     // Log the page load
     $log->log_page();
-    $content = render_button('Templates', 'index.php');
-    $content .= render_button('Show Log', 'pagelog.php');
+
+    $content = render_button('Show Log', 'pagelog.php');
+    $content .= render_button('Reset Albums', 'delete.php');
+    
 
 
     // Display the page content
@@ -30,7 +32,7 @@
 
     // Create main part of page content
     $settings = array(
-        "site_title" => "Lesson 30",
+        "site_title" => "Lesson 31",
         "page_title" => "Album List", 
         'logo'       => 'Bear.png',
         "style"      => 'style.css',

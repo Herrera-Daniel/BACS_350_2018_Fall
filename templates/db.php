@@ -29,7 +29,7 @@
     function local_connect() {
 
         $host = 'localhost';
-        $dbname = 'bacs350';
+        $dbname = 'subscribers';
         $username = 'root';
         $password = '';
         $db_connect = "mysql:host=$host;dbname=$dbname";

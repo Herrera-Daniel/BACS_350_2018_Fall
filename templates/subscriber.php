@@ -128,7 +128,7 @@
             $log->log('Subscriber DELETE');                    // DELETE
             return $subscribers->delete($id);
         }
-        if ($action == 'edit' and ! empty($id)) {
+        if ($action == 'edit' /*and ! empty($id)*/) {
             $log->log('Subscriber Edit View');
             return $subscribers->edit_view($id);
         }

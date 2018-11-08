@@ -16,12 +16,11 @@
     function remote_connect() {
 
         $port = '3306';
-        $dbname = 'subscribers';
+        $dbname = 'anielhe3_music';
         $db_connect = "mysql:host=localhost:$port;dbname=$dbname";
-        $username = 'uncobacs_350';
-        $password = 'BACS_350';
+        $username = 'anielhe3';
+        $password = '3Spookie5Me!';
         return db_connect($db_connect, $username, $password);
-
     }
 
 
@@ -29,7 +28,7 @@
     function local_connect() {
 
         $host = 'localhost';
-        $dbname = 'bacs350';
+        $dbname = 'music';
         $username = 'root';
         $password = '';
         $db_connect = "mysql:host=$host;dbname=$dbname";

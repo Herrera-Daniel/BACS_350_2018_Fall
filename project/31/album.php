@@ -4,14 +4,18 @@
     require_once 'db.php';
     require_once 'log.php';
 
-    $page = 'album_list.php';
+    $page = 'index.php';
 
 
     // Add a new record
     function add_album($db) {
         try {
-            $name  = filter_input(INPUT_POST, 'name');
-            $email = filter_input(INPUT_POST, 'email');
+            $artist  = filter_input(INPUT_POST, 'artist');
+            $name = filter_input(INPUT_POST, 'name');
+            $artwork = filter_input(INPUT_POST, 'artwork');
+            $purchase = filter_input(INPUT_POST, 'purchase');
+            $description = filter_input(INPUT_POST, 'description');
+            $review = filter_input(INPUT_POST, 'review');
             $query = "INSERT INTO album (artist, name, artwork, purchase, description, review) VALUES (:artist, :name, :artwork, :purchase, :description, :review);";
             $statement = $db->prepare($query);
             $statement->bindValue(':artist', $artist);
@@ -51,6 +55,7 @@
                 <p><label>Review:</label> &nbsp; </p>
                 <p><textarea name="review" id="textbox" rows = "10" cols = "40" name="review" id="textbox"></textarea></p>
                 <p><input type="submit" value="Enter Album"/></p>
+                <input type="hidden" name="action" value="create">
                 </form>
             </div>
         ';
@@ -76,26 +81,32 @@
     // Show form for adding a record
     function edit_album_view($record) {
         $id    = $record['id'];
-        $name  = $record['name'];
-        $email = $record['email'];
+        $artist  = $record['artist'];
+        $name = $record['name'];
+        $artwork = $record['artwork'];
+        $purchase = $record['purchase'];
+        $description = $record['description'];
+        $review = $record['review'];
         global $page;
         return '
             <div class="card">
                 <h3>Edit album</h3>
                 <form action="' . $page . '" method="post">
                 <p><label>Artist:</label> &nbsp; </p>
-                <p><textarea name="artist" id="textbox" rows = "1" cols = "40"></textarea></p>
+                <p><textarea name="artist" id="textbox" rows = "1" cols = "40">' .$artist.'</textarea></p>
                 <p><label>Album Name:</label> &nbsp;</p>
-                <p><textarea name="name" id="textbox" rows = "1" cols = "40"></textarea></p>
+                <p><textarea name="name" id="textbox" rows = "1" cols = "40">' .$name.'</textarea></p>
                 <p><label>Artwork Link:</label> &nbsp;
-                <p><textarea name="artwork" id="textbox" rows = "1" cols = "40"></textarea></p>
+                <p><textarea name="artwork" id="textbox" rows = "1" cols = "40">' .$artwork.'</textarea></p>
                 <p><label>Purchase Link:</label> &nbsp;
-                <p><textarea name="purchase" id="textbox" rows = "1" cols = "40"></textarea></p>
+                <p><textarea name="purchase" id="textbox" rows = "1" cols = "40">' .$purchase.'</textarea></p>
                 <p><label>Description:</label> &nbsp;
-                <p><textarea name="description" id="textbox" rows = "2" cols = "40"></textarea></p>
+                <p><textarea name="description" id="textbox" rows = "2" cols = "40">' .$description.'</textarea></p>
                 <p><label>Review:</label> &nbsp; </p>
-                <p><textarea name="review" id="textbox" rows = "10" cols = "40" name="review" id="textbox"></textarea></p>
-                <p><input type="submit" value="Enter Album"/></p>
+                <p><textarea name="review" id="textbox" rows = "10" cols = "40" name="review" id="textbox">' .$review.'</textarea></p>
+                <p><input type="submit" value="Save Record"/></p>
+                <input type="hidden" name="action" value="update">
+                <input type="hidden" name="id" value="' . $id . '">
                 </form>
             </div>
         ';
@@ -149,7 +160,7 @@
             $log->log('album DELETE');                    // DELETE
             return $album->delete($id);
         }
-        if ($action == 'edit' and ! empty($id)) {
+        if ($action == 'edit' /*and ! empty($id)*/) {
             $log->log('album Edit View');
             return $album->edit_view($id);
         }
@@ -169,16 +180,17 @@
     function album_list_view ($table) {
         global $page;
         $s = render_button('Add album', "$page?action=add") . '<br><br>';
-        $s .= '<table>';
-        $s .= '<tr><th>Name</th><th>Email</th></tr>';
         foreach($table as $row) {
-            $edit = render_link($row[1], "$page?id=$row[0]&action=edit");
-            $email = $row[2];
-            $delete = render_link("delete", "$page?id=$row[0]&action=delete");
-            $row = array($edit, $email, $delete);
-            $s .= '<tr><td>' . implode('</td><td>', $row) . '</td></tr>';
+            $s .= '<div class="card">';
+            $s .= '<h1>' . $row['name'] . '</h1>';
+            $s .= '<img src="'. $row['artwork'] .'" width = 500 height = 500 alt="Artwork"/>';
+            $s .='<p>' . $row['artist'] . ', ' .'<a href="'. $row['purchase'] .'">Link To Purchase</a>'. ', ' . $row['description'] . ', ' . $row['review'] . '</p>';
+            $s .= render_link("Edit", "$page?id=$row[0]&action=edit");
+            $s .= '     ';
+            $s .= render_link("Delete", "$page?id=$row[0]&action=delete");
+            $s .= '</div>';
         }
-        $s .= '</table>';
+        
         
         return $s;
     }
@@ -186,18 +198,25 @@
 
     // Update the database
     function update_album ($db) {
-        $id    = filter_input(INPUT_POST, 'id');
-        $name  = filter_input(INPUT_POST, 'name');
-        $email = filter_input(INPUT_POST, 'email');
+        $id  = filter_input(INPUT_POST, 'id');
+        $artist  = filter_input(INPUT_POST, 'artist');
+        $name = filter_input(INPUT_POST, 'name');
+        $artwork = filter_input(INPUT_POST, 'artwork');
+        $purchase = filter_input(INPUT_POST, 'purchase');
+        $description = filter_input(INPUT_POST, 'description');
+        $review = filter_input(INPUT_POST, 'review');
         
         // Modify database row
-        $query = "UPDATE album SET name = :name, email = :email WHERE id = :id";
+        $query = "UPDATE album SET artist = :artist, name = :name, artwork = :artwork, purchase = :purchase, description = :description, review = :review WHERE id = :id";
         $statement = $db->prepare($query);
 
         $statement->bindValue(':id', $id);
+        $statement->bindValue(':artist', $artist);
         $statement->bindValue(':name', $name);
-        $statement->bindValue(':email', $email);
-
+        $statement->bindValue(':artwork', $artwork);
+        $statement->bindValue(':purchase', $purchase);
+        $statement->bindValue(':description', $description);
+        $statement->bindValue(':review', $review);
         $statement->execute();
         $statement->closeCursor();
         
