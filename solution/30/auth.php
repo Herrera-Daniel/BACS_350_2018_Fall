@@ -1,45 +1,42 @@
 <?php
  
-    // Set the password into the administrator table
-    function register_user($db, $email, $password, $first, $last) {
-        
-        global $log;
-        $log->log("$email, $first, $last");
-        $hash = password_hash($password, PASSWORD_DEFAULT);
-        
-        $query = 'INSERT INTO administrators (email, password, firstName, lastName) 
-            VALUES (:email, :password, :first, :last);';
-        
-        $statement = $db->prepare($query);
-        
-        $statement->bindValue(':email', $email);
-        $statement->bindValue(':password', $hash);
-        $statement->bindValue(':first', $first);
-        $statement->bindValue(':last', $last);
-        
-        $statement->execute();
-        $statement->closeCursor();
+/*
+
+    API for Authentication
     
-    }
+    usage: 
+        require_once 'auth.php';  // Setup auth code
+        
+        require_login();   // Go to login if needed
+        logout();          // Clear the session
+        sign_up();         // Sign up form for new user
+        
+*/
+
+    require_once 'db.php';
 
 
-    // Display if password is valid or not
-    function show_valid ($db, $email, $password) {
-        
-        global $log;
-        $content = "<p>User: $email</p><p>Password: $password</p>";
-        $valid_password = is_valid_login ($db, $email, $password);
-        
-        if ($valid_password) {
-            $log->log("User Verified: $email");
-            $content .= '<p>Is Valid</p>';
+    // Controller for user authentication
+    function handle_auth_actions() {
+        global $db;
+        $action = filter_input(INPUT_GET, 'action');
+        if ($action == 'signup') {
+            return sign_up_form();
         }
-        else {
-            $log->log("Bad user login: $email");
-            $content .= '<p>NOT Valid</p>';
+        if ($action == 'login') {
+            return login_form('private.php');
         }
-        return $content;
+        if ($action == 'logout') {
+            return logout('private.php?action=login');
+        }
         
+        $action = filter_input(INPUT_POST, 'action');
+        if ($action == 'register') {
+            return register_user($db);
+        }
+        if ($action == 'validate') {
+            return validate($db, $email, $password);
+        }
     }
 
 
@@ -60,32 +57,116 @@
     }
 
 
-
-    // My log list
-    class Authenticate {
-
-        private $db;
-
-        function __construct($db) {
-            $this->db =  $db;
-        }
-
-        function validate($email, $password) {
-            return is_valid_login($this->db, $email, $password);
-        }
-        
-        function register($email, $password, $first, $last) {
-            return register_user($this->db, $email, $password, $first, $last);
-        }
-        
-        function show_valid ($email, $password) {
-            return show_valid ($this->db, $email, $password);
+    // Test if password is valid or not
+    function validate ($db, $email, $password) {
+        $email    = filter_input(INPUT_POST, 'email');
+        $password = filter_input(INPUT_POST, 'password');
+        global $log;
+        $log->log("Validate: $email, $password");
+        if (is_valid_login ($db, $email, $password)) {
+            session_start ();
+            $_SESSION['LOGGED_IN'] = 'TRUE';
         }
     }
 
 
-    // Create a list object and connect to the database
-    require_once 'db.php';
-    $auth = new Authenticate($db);
+    // Check to see if user is already authenticated
+    function logged_in () {
+        session_start ();
+        global $log;
+        $log->log("logged_in: isset=" . isset($_SESSION['LOGGED_IN']));
+        if (isset($_SESSION['LOGGED_IN'])) {
+            $log->log("logged_in: logged_in=" . $_SESSION['LOGGED_IN']);
+        }
+        return (isset($_SESSION['LOGGED_IN']) and $_SESSION['LOGGED_IN']=='TRUE') ;
+    }
+
+
+    // Cancel the login
+    function logout ($page) {
+        session_start ();
+        unset($_SESSION['LOGGED_IN']);
+        header("Location: $page");
+    }
+
+
+    // Set the password into the administrator table
+    function register_user($db) {
+        $email    = filter_input(INPUT_POST, 'email');
+        $password = filter_input(INPUT_POST, 'password');
+        $first    = filter_input(INPUT_POST, 'first');
+        $last     = filter_input(INPUT_POST, 'last');
+        
+        global $log;
+        $log->log("$email, $first, $last");
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        
+        $query = 'INSERT INTO administrators (email, password, firstName, lastName) 
+            VALUES (:email, :password, :first, :last);';
+        
+        $statement = $db->prepare($query);
+        
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':password', $hash);
+        $statement->bindValue(':first', $first);
+        $statement->bindValue(':last', $last);
+        
+        $statement->execute();
+        $statement->closeCursor();
+    }
+
+
+    // Show the login
+    function login_form($page) {
+        global $log;
+        $log->log("Show Login Form");
+        
+        return '
+            <div class="card">
+                <h3>Login</h3>
+            
+                <form action="' . $page . '" method="post">
+                    <p><label>Email:</label> &nbsp; <input type="text" name="email"></p>
+                    <p><label>Password:</label> &nbsp; <input type="password" name="password"></p>
+                    <p><input type="submit" value="Login" class="btn"></p>
+                    <input type="hidden" name="action" value="validate">
+                    <input type="hidden" name="next" value="' . $page . '">
+                </form>
+            </div>
+            ';
+    }
+
+
+    // Do a login if needed
+    function require_login ($page){
+        if (! logged_in ()) {
+            header("Location: $page?action=login");
+        }
+    }
+
+
+    // Show the sign up
+    function sign_up_form($page) {
+        global $log;
+        $log->log("Show Sign Up Form");
+        
+        return '
+            <div class="card">
+                <h3>Sign Up</h3>
+            
+                <form action="' . $page . '" method="post">
+                    <p><label>Email:</label> &nbsp; <input type="text" name="email"></p>
+                    <p><label>Password:</label> &nbsp; <input type="password" name="password"></p>
+                    <p><label>First Name:</label> &nbsp; <input type="text" name="first"></p>
+                    <p><label>Last Name:</label> &nbsp; <input type="text" name="last"></p>
+                    <p><input type="submit" value="Sign Up" class="btn"/></p>
+                    <input type="hidden" name="action" value="register">
+                    <input type="hidden" name="next" value="' . $page . '">
+                    
+                </form>
+            </div>
+            ';
+    }
+
 
 ?>
