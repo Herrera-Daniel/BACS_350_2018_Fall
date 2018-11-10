@@ -29,6 +29,7 @@
 
     // Display the page content
     $content .= $album->handle_actions();
+    $content .= auth_handle_actions();
 
     // Create main part of page content
     $settings = array(
