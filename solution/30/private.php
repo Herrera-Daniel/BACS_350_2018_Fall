@@ -8,33 +8,31 @@
     // Log the page load
     $log->log_page();
 
-    // Display the page content
-    $content = render_button('Templates', '../../templates');
-    $content .= render_button('Solutions', '..');
-    $content .= render_button('Show Log', 'pagelog.php');
-    
 
     // Check on login
     $login = handle_auth_actions();
     if (empty($login)) {
         require_login('private.php');
         
-        $content .= render_button('Logout', 'private.php?action=logout');
+        // Display the page content
+        $content = render_button('Templates', '../../templates');
+        $content .= render_button('Solutions', '..');
+        $content .= render_button('Show Log', 'pagelog.php');
         
-        $content .= '
-        <h2>Private Page</h2>
+        $content .= '<h2>Private Page</h2>
         <p>
             This solution demonstrates the use of authentication code.
             Visiting this page requires a login.
-
+        </p><p>
             <a href="index.php">Public Page</a>
-        </p>
-        ';
+        </p>';
     }
     else {
-        $content .= render_button('Login', 'private.php?action=login');
-        $content .= render_button('Sign Up', 'private.php?action=signup');
-        $content .= $login;
+<<<<<<< HEAD
+        
+=======
+>>>>>>> 5274bf45cfdddfb73ca8b71e48376b810d331e9a
+        $content = $login;
     }
     
 
@@ -44,6 +42,7 @@
         "page_title" => "User Authentication", 
         "logo"       => "Bear.png",
         "style"      => 'style.css',
+        'user'       => user_info(),
         "content"    => $content);
 
     echo render_page($settings);
