@@ -7,7 +7,10 @@
     
     Usage:
         require_once 'db.php';
+<<<<<<< HEAD
         $db = connect_database();
+=======
+>>>>>>> ec36bab4dd9144d04b02b934363ec127aa69e8e8
         
 */
 
@@ -16,7 +19,11 @@
     function remote_connect() {
 
         $port = '3306';
+<<<<<<< HEAD
         $dbname = 'subscribers';
+=======
+        $dbname = 'uncobacs_350';
+>>>>>>> ec36bab4dd9144d04b02b934363ec127aa69e8e8
         $db_connect = "mysql:host=localhost:$port;dbname=$dbname";
         $username = 'uncobacs_350';
         $password = 'BACS_350';

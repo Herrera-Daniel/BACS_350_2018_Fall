@@ -41,11 +41,7 @@
         try {
             // Create a string for "now"
             date_default_timezone_set("America/Denver");
-<<<<<<< HEAD
-            $date = date('Y-m-d g:i:s a');
-=======
-            $date = date('Y-m-d g:i a');
->>>>>>> ec36bab4dd9144d04b02b934363ec127aa69e8e8
+            $date = date('Y-m-d g:is a');
             
             // Add database row
             $query = "INSERT INTO log (date, text) VALUES (:date, :text);";
@@ -125,11 +121,7 @@
     function render_history($list) {
         $text = '<h3>Application History</h3><ul>';
         foreach ($list as $s) {
-<<<<<<< HEAD
             $text .= '<li>' . $s['date'] . ', ' . $s['text'] . '</li>';
-=======
-            $text .= '<li>' . $s['date'] . ' -- ' . $s['text'] . '</li>';
->>>>>>> ec36bab4dd9144d04b02b934363ec127aa69e8e8
         }
         $text .= '</ul>';
         return $text;     
@@ -162,13 +154,8 @@
         // Database connection
         private $db;
 
-<<<<<<< HEAD
         function __construct() {
             $this->db =  connect_database();
-=======
-        function __construct($db) {
-            $this->db =  $db;
->>>>>>> ec36bab4dd9144d04b02b934363ec127aa69e8e8
         }
 
         
@@ -218,10 +205,6 @@
 
 
     // Create a list object and connect to the database
-<<<<<<< HEAD
     $log = new Log;
-=======
-    $log = new Log($db);
->>>>>>> ec36bab4dd9144d04b02b934363ec127aa69e8e8
 
 ?>
