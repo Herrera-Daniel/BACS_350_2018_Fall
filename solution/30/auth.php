@@ -1,22 +1,19 @@
 <?php
  
     // Set the password into the administrator table
-    function register_user($db, $email, $password, $first, $last) {
+    function register_user($db, $email, $password) {
         
         global $log;
         $log->log("$email, $first, $last");
         $hash = password_hash($password, PASSWORD_DEFAULT);
         
-        $query = 'INSERT INTO administrators (email, password, firstName, lastName) 
-            VALUES (:email, :password, :first, :last);';
+        $query = 'INSERT INTO administrators (email, password) 
+            VALUES (:email, :password);';
         
         $statement = $db->prepare($query);
         
         $statement->bindValue(':email', $email);
         $statement->bindValue(':password', $hash);
-        $statement->bindValue(':first', $first);
-        $statement->bindValue(':last', $last);
-        
         $statement->execute();
         $statement->closeCursor();
     
@@ -75,7 +72,7 @@
         }
         
         function register($email, $password, $first, $last) {
-            return register_user($this->db, $email, $password, $first, $last);
+            return register_user($this->db, $email, $password);
         }
         
         function show_valid ($email, $password) {
