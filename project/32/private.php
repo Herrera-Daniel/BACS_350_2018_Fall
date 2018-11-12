@@ -15,8 +15,7 @@
         require_login('private.php');
         
         // Display the page content
-        $content = render_button('Templates', '../../templates');
-        $content .= render_button('Solutions', '..');
+        $content = render_button('Home', 'index.php');
         $content .= render_button('Show Log', 'pagelog.php');
         $content .= user_info();
         
@@ -29,7 +28,6 @@
         </p>';
     }
     else {
-        
         $content = $login;
     }
     

@@ -20,7 +20,6 @@
     $settings = array(
         "site_title" => "Exterior Brain",
         "page_title" => "A smarter tool", 
-        "style"      => 'style.css',
         "content"    => $content);
 
     echo render_page($settings);

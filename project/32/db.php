@@ -15,10 +15,10 @@
     function remote_connect() {
 
         $port = '3306';
-        $dbname = 'uncobacs_350';
+        $dbname = 'anielhe3_bacs350';
         $db_connect = "mysql:host=localhost:$port;dbname=$dbname";
-        $username = 'uncobacs_350';
-        $password = 'BACS_350';
+        $username = 'anielhe3';
+        $password = '3Spookie5Me!';
         return db_connect($db_connect, $username, $password);
 
     }
