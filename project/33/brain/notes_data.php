@@ -119,13 +119,21 @@
     function add_note_view() {
         global $page;
         return '
-            <h3>Add note</h3>
-            <form action="' . $page . '" method="post">
-                <p><label>Title:</label> &nbsp; <input type="text" name="title"></p>
-                <p><label>Body:</label> &nbsp; <textarea name="body"></textarea></p>
-                <p><input type="submit" value="Add Note"/></p>
-                <input type="hidden" name="action" value="create">
-            </form>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-preview">
+                <h3>Add note</h3>
+                <form action="' . $page . '" method="post">
+                    <p><label>Title:</label> &nbsp; <input type="text" name="title"></p>
+                    <p><label>Body:</label> &nbsp; <textarea name="body"></textarea></p>
+                    <p><input type="submit" value="Add Note"/></p>
+                    <input type="hidden" name="action" value="create">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
         ';
     }
 
@@ -137,14 +145,22 @@
         $body = $record['body'];
         global $page;
         return '
-            <h3>Edit note</h3>
-            <form action="' . $page . '" method="post">
-                <p><label>Title:</label> &nbsp; <input type="text" name="title" value="' . $title . '"></p>
-                <p><label>Body:</label> &nbsp; <textarea name="body">' . $body . '</textarea></p>
-                <p><input type="submit" value="Save Record"/></p>
-                <input type="hidden" name="action" value="update">
-                <input type="hidden" name="id" value="' . $id . '">
-            </form>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-preview">
+                <h3>Edit note</h3>
+                <form action="' . $page . '" method="post">
+                    <p><label>Title:</label> &nbsp; <input type="text" name="title" value="' . $title . '"></p>
+                    <p><label>Body:</label> &nbsp; <textarea name="body">' . $body . '</textarea></p>
+                    <p><input type="submit" value="Save Record"/></p>
+                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="id" value="' . $id . '">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
         ';
     }
 
@@ -191,16 +207,49 @@
     // render_table -- Create a bullet list in HTML
     function note_list_view ($list) {
         global $page;
-        echo '
-                <h3>Notes</h3> 
+        $string = '';
+        $string.= '<div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-preview">
+              <h1 class="post-title">
+              Notes
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
             ';
         foreach ($list as $s) {
-            echo '<div class="card">';
-            echo'<h1> Note 1 </h1>';
-            echo '
-            </div>';
+            $string .= '<div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-preview">
+                    <h2 class="post-title">
+                    Title: 
+                    </h2>
+                    <p>
+                    ' . $s['title'] . '
+                    </p>
+                    <h3 class="post-subtitle">
+                      Body:
+                    </h3>
+                    <p>
+                    ' . $s['body'] . '
+                    </p>
+                </div>
+                <div class="clearfix">
+                <a class="btn btn-primary float-right" href="notes.php?id='. $s['id'] .'&action=edit">Edit &rarr;</a>
+                <a class="btn btn-primary float-right" href="notes.php?id='. $s['id'] .'&action=delete">Delete &rarr;</a>
+          </div>
+              </div>
+            </div>
+          </div>
+          <hr>';
         }
-        
+
+        return $string;
     }
 
 

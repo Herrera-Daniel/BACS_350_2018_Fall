@@ -1,28 +1,24 @@
 <?php
 
-    require_once 'views.php';
-    require_once 'db.php';    
+    require_once 'views.php'; 
     require_once 'log.php';
     require_once 'files.php';
-    require_once 'Parsedown.php';
+    require_once 'notes_data.php';
     
+    
+    // Page content
 
-    // Markdown Text
-    $markdown = read_file('brain.md');
-
-
-    // Convert the Markdown into HTML
-    $Parsedown = new Parsedown();
-    $content = '<hr> <div class="container">
+    $content = render_notes_view();
+    $content .=  '<br>'.'<div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
-          <a href="/project/index.php">
+          <a href="index.php">
             <h2 class="post-title">
-              BACS 350 Project Links
+              Home
             </h2>
             <h3 class="post-subtitle">
-              Link to my BACS 350 Projects
+              Link to Brain Home
             </h3>
           </a>
         </div>
@@ -34,26 +30,28 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
-            <a href="notes.php">
+            <a href="notes.php?action=add">
               <h2 class="post-title">
-                Notes App
+                Add Note
               </h2>
               <h3 class="post-subtitle">
-                Link to the Notes app
+                Link to the add note
               </h3>
             </a>
           </div>
         </div>
       </div>
     </div>';
-    
 
+    
     // Create main part of page content
     $settings = array(
-        "site_title" => "A Smarter Tool",
-        "page_title" => "Exterior Brain", 
+        "site_title" => "Exterior Brain",
+        "page_title" => "Notes App", 
         "content"    => $content);
 
     echo render_page($settings);
+
+    
 
 ?>

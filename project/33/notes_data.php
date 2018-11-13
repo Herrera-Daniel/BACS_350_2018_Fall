@@ -119,6 +119,10 @@
     function add_note_view() {
         global $page;
         return '
+        <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
             <h3>Add note</h3>
             <form action="' . $page . '" method="post">
                 <p><label>Title:</label> &nbsp; <input type="text" name="title"></p>
@@ -126,6 +130,10 @@
                 <p><input type="submit" value="Add Note"/></p>
                 <input type="hidden" name="action" value="create">
             </form>
+            </div>
+    </div>
+    </div>
+</div>
         ';
     }
 
@@ -137,6 +145,10 @@
         $body = $record['body'];
         global $page;
         return '
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
             <h3>Edit note</h3>
             <form action="' . $page . '" method="post">
                 <p><label>Title:</label> &nbsp; <input type="text" name="title" value="' . $title . '"></p>
@@ -145,6 +157,10 @@
                 <input type="hidden" name="action" value="update">
                 <input type="hidden" name="id" value="' . $id . '">
             </form>
+        </div>
+    </div>
+    </div>
+</div>
         ';
     }
 
@@ -189,20 +205,51 @@
 
 
     // render_table -- Create a bullet list in HTML
-    function note_list_view ($table) {
+    function note_list_view ($list) {
         global $page;
-        $s = '<table>';
-        $s .= '<tr><th>Title</th><th>Body</th></tr>';
-        foreach($table as $row) {
-            $edit = render_link($row[1], "$page?id=$row[0]&action=edit");
-            $title = $row[2];
-            $delete = render_link("delete", "$page?id=$row[0]&action=delete");
-            $row = array($edit, $title, $delete);
-            $s .= '<tr><td>' . implode('</td><td>', $row) . '</td></tr>';
+        $string = '';
+        $string.= '<div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-preview">
+              <h1 class="post-title">
+              Notes
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+            ';
+        foreach ($list as $s) {
+            $string .= '<div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-preview">
+                    <h2 class="post-title">
+                    Title: 
+                    </h2>
+                    <p>
+                    ' . $s['title'] . '
+                    </p>
+                    <h3 class="post-subtitle">
+                      Body:
+                    </h3>
+                    <p>
+                    ' . $s['body'] . '
+                    </p>
+                  </a>
+                </div>
+                <div class="clearfix">
+            <a class="btn btn-primary float-right" href="notes.php?id=1&action=edit">Edit &rarr;</a>
+            <a class="btn btn-primary float-right" href="notes.php?id=1&action=delete">Delete &rarr;</a>
+          </div>
+              </div>
+            </div>
+          </div>';
         }
-        $s .= '</table>';
-        
-        return $s;
+
+        return $string;
     }
 
 
