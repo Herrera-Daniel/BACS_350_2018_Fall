@@ -189,20 +189,18 @@
 
 
     // render_table -- Create a bullet list in HTML
-    function note_list_view ($table) {
+    function note_list_view ($list) {
         global $page;
-        $s = '<table>';
-        $s .= '<tr><th>Title</th><th>Body</th></tr>';
-        foreach($table as $row) {
-            $edit = render_link($row[1], "$page?id=$row[0]&action=edit");
-            $title = $row[2];
-            $delete = render_link("delete", "$page?id=$row[0]&action=delete");
-            $row = array($edit, $title, $delete);
-            $s .= '<tr><td>' . implode('</td><td>', $row) . '</td></tr>';
+        echo '
+                <h3>Notes</h3> 
+            ';
+        foreach ($list as $s) {
+            echo '<div class="card">';
+            echo'<h1> Note 1 </h1>';
+            echo '
+            </div>';
         }
-        $s .= '</table>';
         
-        return $s;
     }
 
 

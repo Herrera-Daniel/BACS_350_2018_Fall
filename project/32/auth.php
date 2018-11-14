@@ -23,7 +23,7 @@
         global $db;
         $action = filter_input(INPUT_GET, 'action');
         if ($action == 'signup') {
-            return sign_up_form();
+            return sign_up_form('private.php');
         }
         if ($action == 'login') {
             return login_form('private.php');
@@ -108,7 +108,7 @@
         global $log;
         $log->log("Show Login Form");
         
-        return '
+        return render_button('Home', 'index.php') . render_button('Show Log', 'pagelog.php') . '<br>'.'
             <div class="card">
                 <h3>Login</h3>
             
@@ -137,7 +137,7 @@
         global $log;
         $log->log("Show Sign Up Form");
         
-        return render_button('Home', 'index.php') . render_button('Show Log', 'pagelog.php'). '<br>'.'
+        return render_button('Home', 'index.php') . render_button('Show Log', 'pagelog.php') . '<br>'.'
             <div class="card">
                 <h3>Sign Up</h3>
             
@@ -159,14 +159,16 @@
     // Show the logged in user
     function user_info() {
         if (logged_in ()) {
-            return   
-                render_button('Logout', 'private.php?action=logout').
-                '<br>'.
-                '"Logged in as '.$_SESSION['USER'].'"' ;
+            return '<div class="user">' . 
+                "Logged in as $_SESSION[USER]" . 
+                render_button('Logout', 'private.php?action=logout') .
+                '</div>';
         }
         else {
-            return  render_button('Login', 'private.php?action=login') .
-                render_button('Sign Up', 'private.php?action=signup');
+            return '<div class="user">' . 
+                render_button('Login', 'private.php?action=login') .
+                render_button('Sign Up', 'private.php?action=signup') .
+                '</div>';
         }
     }
 

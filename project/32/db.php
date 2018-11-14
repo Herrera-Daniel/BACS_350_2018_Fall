@@ -20,13 +20,17 @@
 
         $port = '3306';
 <<<<<<< HEAD
+        $dbname = 'anielhe3_bacs350';
+=======
+<<<<<<< HEAD
         $dbname = 'subscribers';
 =======
         $dbname = 'uncobacs_350';
 >>>>>>> ec36bab4dd9144d04b02b934363ec127aa69e8e8
+>>>>>>> a5d21339f69c82fcc7c8d83f16e13956842d7aa1
         $db_connect = "mysql:host=localhost:$port;dbname=$dbname";
-        $username = 'uncobacs_350';
-        $password = 'BACS_350';
+        $username = 'anielhe3';
+        $password = '3Spookie5Me!';
         return db_connect($db_connect, $username, $password);
 
     }
