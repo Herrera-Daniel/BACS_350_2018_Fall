@@ -17,6 +17,23 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
+          <a href="/../index.html">
+            <h2 class="post-title">
+              Site Home
+            </h2>
+            <h3 class="post-subtitle">
+              Link to site home
+            </h3>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
           <a href="/project/index.php">
             <h2 class="post-title">
               BACS 350 Project Links
