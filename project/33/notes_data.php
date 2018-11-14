@@ -241,8 +241,8 @@
                   </a>
                 </div>
                 <div class="clearfix">
-            <a class="btn btn-primary float-right" href="notes.php?id=1&action=edit">Edit &rarr;</a>
-            <a class="btn btn-primary float-right" href="notes.php?id=1&action=delete">Delete &rarr;</a>
+            <a class="btn btn-secondary" href="notes.php?id=' . $s['id'] . ' &action=edit">Edit</a>
+            <a class="btn btn-secondary" href="notes.php?id=' . $s['id'] . '&action=delete">Delete</a>
           </div>
               </div>
             </div>

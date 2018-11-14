@@ -125,13 +125,24 @@
     function add_review_view() {
         global $page;
         return '
-            <h3>Add review</h3>
+        <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+            <h3>Add Review</h3>
             <form action="' . $page . '" method="post">
-                <p><label>Title:</label> &nbsp; <input type="text" name="title"></p>
-                <p><label>Body:</label> &nbsp; <textarea name="body"></textarea></p>
-                <p><input type="submit" value="Add review"/></p>
+                <p><label>Reviewers Email:</label> &nbsp; <input type="text" name="review_email"></p>
+                <p><label>Designers Email:</label> &nbsp; <input type="text" name="design_email"></p>
+                <p><label>Absolute Url:</label> &nbsp; <input type="text" name="url"></p>
+                <p><label>Scorecard:</label> &nbsp; <textarea name="scorecard"></textarea></p>
+                <p><label>Score:</label> &nbsp; <input type="text" name="score"></p>
+                <p><input type="submit" value="Add Review"/></p>
                 <input type="hidden" name="action" value="create">
             </form>
+            </div>
+    </div>
+    </div>
+</div>
         ';
     }
 
@@ -139,18 +150,31 @@
     // Show form for adding a record
     function edit_review_view($record) {
         $id    = $record['id'];
-        $title  = $record['title'];
-        $body = $record['body'];
+        $review  = $record['review_email'];
+        $design = $record['design_email'];
+        $url = $record['url'];
+        $scorecard = $record['scorecard'];
+        $score = $record['score'];
         global $page;
         return '
-            <h3>Edit review</h3>
+        <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+            <h3>Add Review</h3>
             <form action="' . $page . '" method="post">
-                <p><label>Title:</label> &nbsp; <input type="text" name="title" value="' . $title . '"></p>
-                <p><label>Body:</label> &nbsp; <textarea name="body">' . $body . '</textarea></p>
-                <p><input type="submit" value="Save Record"/></p>
-                <input type="hidden" name="action" value="update">
-                <input type="hidden" name="id" value="' . $id . '">
+                <p><label>Reviewers Email:</label> &nbsp; <input type="text" name="review_email" value="' . $review . '"></p>
+                <p><label>Designers Email:</label> &nbsp; <input type="text" name="design_email" value="' . $design . '"></p>
+                <p><label>Absolute Url:</label> &nbsp; <input type="text" name="url" value="' . $url . '"></p>
+                <p><label>Scorecard:</label> &nbsp; <textarea name="scorecard" value="' . $scorecard . '"></textarea></p>
+                <p><label>Score:</label> &nbsp; <input type="text" name="url" value="' . $score . '"></p>
+                <p><input type="submit" value="Edit Review"/></p>
+                <input type="hidden" name="action" value="create">
             </form>
+            </div>
+    </div>
+    </div>
+</div>
         ';
     }
 
@@ -195,20 +219,75 @@
 
 
     // render_table -- Create a bullet list in HTML
-    function review_list_view ($table) {
+    function review_list_view ($list) {
         global $page;
-        $s = '<table>';
-        $s .= '<tr><th>Title</th><th>Body</th></tr>';
-        foreach($table as $row) {
-            $edit = render_link($row[1], "$page?id=$row[0]&action=edit");
-            $title = $row[2];
-            $delete = render_link("delete", "$page?id=$row[0]&action=delete");
-            $row = array($edit, $title, $delete);
-            $s .= '<tr><td>' . implode('</td><td>', $row) . '</td></tr>';
+        $string = '';
+        $string.= '<div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-preview">
+              <h1 class="post-title">
+              Reviews
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+            ';
+        foreach ($list as $s) {
+            $string .= '<div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-preview">
+                    <h2 class="post-title">
+                    Date: 
+                    </h2>
+                    <p>
+                    ' . $s['date'] . '
+                    </p>
+                    <h3 class="post-subtitle">
+                      Reviewers Email: 
+                    </h3>
+                    <p>
+                    ' . $s['review_email'] . '
+                    </p>
+                    <h3 class="post-subtitle">
+                      Designers Email: 
+                    </h3>
+                    <p>
+                    ' . $s['design_email'] . '
+                    </p>
+                    <h3 class="post-subtitle">
+                      Absolute Url: 
+                    </h3>
+                    <p>
+                    ' . $s['url'] . '
+                    </p>
+                    <h3 class="post-subtitle">
+                      Scorecard: 
+                    </h3>
+                    <p>
+                    ' . $s['scorecard'] . '
+                    </p>
+                    <h3 class="post-subtitle">
+                      Score: 
+                    </h3>
+                    <p>
+                    ' . $s['score'] . '
+                    </p>
+                  </a>
+                </div>
+                <div class="clearfix">
+            <a class="btn btn-secondary" href="review.php?id=' . $s['id'] . ' &action=edit">Edit</a>
+            <a class="btn btn-secondary" href="review.php?id=' . $s['id'] . '&action=delete">Delete</a>
+          </div>
+              </div>
+            </div>
+          </div>';
         }
-        $s .= '</table>';
-        
-        return $s;
+
+        return $string;
     }
 
 
