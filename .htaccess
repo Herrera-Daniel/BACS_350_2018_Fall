@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 DirectoryIndex index.php
+=======
+
+>>>>>>> bcc6891f1c8e595b26aa5eabcf6eb2fcff55edbb
 # BEGIN WordPress
 AddHandler application/x-httpd-ea-php70 .php
 <IfModule mod_rewrite.c>
