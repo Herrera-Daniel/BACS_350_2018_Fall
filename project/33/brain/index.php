@@ -62,13 +62,30 @@
           </div>
         </div>
       </div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-preview">
+            <a href="slides.php">
+              <h2 class="post-title">
+                Slides
+              </h2>
+              <h3 class="post-subtitle">
+                Link to the Slides app
+              </h3>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>';
     
 
     // Create main part of page content
     $settings = array(
-        "site_title" => "A Smarter Tool",
-        "page_title" => "Exterior Brain", 
+        "site_title" => "Exterior Brain",
+        "page_title" => "A Smarter Tool", 
         "content"    => $content);
 
     echo render_page($settings);

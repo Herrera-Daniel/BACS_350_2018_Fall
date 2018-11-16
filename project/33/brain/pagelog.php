@@ -22,7 +22,7 @@
 
     // Show Page
     $settings = array(
-        "site_title" => "Brain",
+        "site_title" => "Exterior Brain",
         "page_title" => "Page Loading History", 
         'logo'       => 'Bear.png',
         "style"      => 'https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css',
