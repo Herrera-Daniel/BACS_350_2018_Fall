@@ -235,9 +235,9 @@
                     <h3 class="post-subtitle">
                       Body:
                     </h3>
-                    <p>
+                    <pre>
                     ' . $s['body'] . '
-                    </p>
+                    </pre>
                   </a>
                 </div>
                 <div class="clearfix">

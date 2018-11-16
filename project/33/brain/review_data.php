@@ -267,9 +267,9 @@
                     <h3 class="post-subtitle">
                       Scorecard: 
                     </h3>
-                    <p>
+                    <pre>
                     ' . $s['scorecard'] . '
-                    </p>
+                    </pre>
                     <h3 class="post-subtitle">
                       Score: 
                     </h3>
