@@ -111,6 +111,7 @@
                     <p><label>Text:</label> &nbsp; <input type="text" name="text"></p>
                     <input class="btn" type="submit" value="Log This"/>
                     <button class="btn"><a href="pagelog.php?action=clear">Clear Log</a></button>
+                    <input type="hidden" name="action" value="clear">
                     <button class="btn"><a href="index.php">Home</a></button>
                     <input type="hidden" name="action" value="add">
                 </form>

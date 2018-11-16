@@ -4,7 +4,7 @@
     require_once 'db.php';
     require_once 'log.php';
 
-    $page = 'notes.php';
+    $page = 'review.php';
 
 
     /************************/
@@ -12,25 +12,31 @@
     /************************/
 
     // Add a new record
-    function add_note() {
+    function add_review() {
         global $log;
         
         try {
-            $title = filter_input(INPUT_POST, 'title');
-            $body  = filter_input(INPUT_POST, 'body');
+            $review_email  = filter_input(INPUT_POST, 'review_email');
+            $design_email  = filter_input(INPUT_POST, 'design_email');
+            $url  = filter_input(INPUT_POST, 'url');
+            $scorecard  = filter_input(INPUT_POST, 'scorecard');
+            $score  = filter_input(INPUT_POST, 'score');
             date_default_timezone_set("America/Denver");
             $date  = date('Y-m-d g:i:s a');
             
-            $query = "INSERT INTO notes (title, date, body) VALUES (:title, :date, :body);";
+            $query = "INSERT INTO review (date, review_email, design_email, url, scorecard, score) VALUES (:date, :review_email, :design_email, :url, :scorecard, :score);";
             
-            $log->log("Add Record: $date, $title, $body");
+            $log->log("Add Record: $date, $review_email, $design_email, $url, $scorecard, $score");
             
             global $db;
             $statement = $db->prepare($query);
-            
-            $statement->bindValue(':title', $title);
+        
             $statement->bindValue(':date', $date);
-            $statement->bindValue(':body', $body);
+            $statement->bindValue(':review_email', $review_email);
+            $statement->bindValue(':design_email', $design_email);
+            $statement->bindValue(':url', $url);
+            $statement->bindValue(':scorecard', $scorecard);
+            $statement->bindValue(':score', $score);
             
             $statement->execute();
             $statement->closeCursor();
@@ -46,11 +52,11 @@
 
 
     // Delete Database Record
-    function delete_note($id) {
+    function delete_review($id) {
         $action = filter_input(INPUT_GET, 'action');
         $id = filter_input(INPUT_GET, 'id');
         if ($action == 'delete' and !empty($id)) {
-            $query = "DELETE from notes WHERE id = :id";
+            $query = "DELETE from review WHERE id = :id";
             global $db;
             $statement = $db->prepare($query);
             $statement->bindValue(':id', $id);
@@ -63,8 +69,8 @@
     
 
     // Lookup Record using ID
-    function get_note($id) {
-        $query = "SELECT * FROM notes WHERE id = :id";
+    function get_review($id) {
+        $query = "SELECT * FROM review WHERE id = :id";
         global $db;
         $statement = $db->prepare($query);
         $statement->bindValue(':id', $id);
@@ -75,9 +81,9 @@
     }
 
 
-    // Query for all notes
-    function query_notes () {
-        $query = "SELECT * FROM notes";
+    // Query for all review
+    function query_review () {
+        $query = "SELECT * FROM review";
         global $db;
         $statement = $db->prepare($query);
         $statement->execute();
@@ -86,7 +92,7 @@
 
 
     // Update the database
-    function update_note () {
+    function update_review () {
         $id    = filter_input(INPUT_POST, 'id');
         $title = filter_input(INPUT_POST, 'title');
         $body  = filter_input(INPUT_POST, 'body');
@@ -94,7 +100,7 @@
         $date  = date('Y-m-d g:i:s a');
         
         // Modify database row
-        $query = "UPDATE notes SET title=:title, body=:body, date=:date WHERE id = :id";
+        $query = "UPDATE review SET title=:title, body=:body, date=:date WHERE id = :id";
         global $db;       
         $statement = $db->prepare($query);
 
@@ -116,18 +122,21 @@
     /************************/
 
     // Show form for adding a record
-    function add_note_view() {
+    function add_review_view() {
         global $page;
         return '
         <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
-            <h3>Add note</h3>
+            <h3>Add Review</h3>
             <form action="' . $page . '" method="post">
-                <p><label>Title:</label> &nbsp; <input type="text" name="title"></p>
-                <p><label>Body:</label> &nbsp; <textarea name="body"></textarea></p>
-                <p><input type="submit" value="Add Note"/></p>
+                <p><label>Reviewers Email:</label> &nbsp; <input type="text" name="review_email"></p>
+                <p><label>Designers Email:</label> &nbsp; <input type="text" name="design_email"></p>
+                <p><label>Absolute Url:</label> &nbsp; <input type="text" name="url"></p>
+                <p><label>Scorecard:</label> &nbsp; <textarea name="scorecard" rows = "10" cols = "40"></textarea></p>
+                <p><label>Score:</label> &nbsp; <input type="text" name="score"></p>
+                <p><input type="submit" value="Add Review"/></p>
                 <input type="hidden" name="action" value="create">
             </form>
             </div>
@@ -139,25 +148,30 @@
 
 
     // Show form for adding a record
-    function edit_note_view($record) {
+    function edit_review_view($record) {
         $id    = $record['id'];
-        $title  = $record['title'];
-        $body = $record['body'];
+        $review  = $record['review_email'];
+        $design = $record['design_email'];
+        $url = $record['url'];
+        $scorecard = $record['scorecard'];
+        $score = $record['score'];
         global $page;
         return '
-<div class="container">
+        <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
-            <h3>Edit note</h3>
+            <h3>Add Review</h3>
             <form action="' . $page . '" method="post">
-                <p><label>Title:</label> &nbsp; <input type="text" name="title" value="' . $title . '"></p>
-                <p><label>Body:</label> &nbsp; <textarea name="body">' . $body . '</textarea></p>
-                <p><input type="submit" value="Save Record"/></p>
+                <p><label>Reviewers Email:</label> &nbsp; <input type="text" name="review_email" value="' . $review . '"></p>
+                <p><label>Designers Email:</label> &nbsp; <input type="text" name="design_email" value="' . $design . '"></p>
+                <p><label>Absolute Url:</label> &nbsp; <input type="text" name="url" value="' . $url . '"></p>
+                <p><label>Scorecard:</label> &nbsp; <textarea name="scorecard" rows = "10" cols = "40">' . $scorecard . '</textarea></p>
+                <p><label>Score:</label> &nbsp; <input type="text" name="score" value="' . $score . '"></p>
+                <p><input type="submit" value="Edit Review"/></p>
                 <input type="hidden" name="action" value="update">
-                <input type="hidden" name="id" value="' . $id . '">
             </form>
-        </div>
+            </div>
     </div>
     </div>
 </div>
@@ -166,46 +180,46 @@
 
 
     // Handle all action verbs
-    function render_notes_view() {
+    function render_review_view() {
         $id = filter_input(INPUT_GET, 'id');
-        global $notes;
+        global $review;
         global $log;
         global $db;
         
         // POST
         $action = filter_input(INPUT_POST, 'action');
         if ($action == 'create') {    
-            $log->log('note CREATE');                    // CREATE
-            add_note();
+            $log->log('review CREATE');                    // CREATE
+            add_review();
         }
         if ($action == 'update') {
-            $log->log('note UPDATE');                    // UPDATE
-            update_note ();
+            $log->log('review UPDATE');                    // UPDATE
+            update_review ();
         }
 
         // GET
         $action = filter_input(INPUT_GET, 'action');
         if (empty($action)) {                                  
-            $log->log('note READ');                      // READ
-            return note_list_view(query_notes());
+            $log->log('review READ');                      // READ
+            return review_list_view(query_review());
         }
         if ($action == 'add') {
-            $log->log('note Add View');
-            return add_note_view();
+            $log->log('review Add View');
+            return add_review_view();
         }
         if ($action == 'delete') {
-            $log->log('note DELETE');                    // DELETE
-            return delete_note($id);
+            $log->log('review DELETE');                    // DELETE
+            return delete_review($id);
         }
         if ($action == 'edit' and ! empty($id)) {
-            $log->log('note Edit View');
-            return edit_note_view(get_note($id));
+            $log->log('review Edit View');
+            return edit_review_view(get_review($id));
         }
     }
 
 
     // render_table -- Create a bullet list in HTML
-    function note_list_view ($list) {
+    function review_list_view ($list) {
         global $page;
         $string = '';
         $string.= '<div class="container">
@@ -213,7 +227,7 @@
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-preview">
               <h1 class="post-title">
-              Notes
+              Reviews
               </h1>
             </div>
           </div>
@@ -227,27 +241,50 @@
               <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-preview">
                     <h2 class="post-title">
-                    Title: 
+                    Date: 
                     </h2>
                     <p>
-                    ' . $s['title'] . '
+                    ' . $s['date'] . '
                     </p>
                     <h3 class="post-subtitle">
-                      Body:
+                      Reviewers Email: 
                     </h3>
                     <p>
-                    ' . $s['body'] . '
+                    ' . $s['review_email'] . '
+                    </p>
+                    <h3 class="post-subtitle">
+                      Designers Email: 
+                    </h3>
+                    <p>
+                    ' . $s['design_email'] . '
+                    </p>
+                    <h3 class="post-subtitle">
+                      Absolute Url: 
+                    </h3>
+                    <p>
+                    <a href=' . $s['url'] . '>Link To Site</a>
+                    </p>
+                    <h3 class="post-subtitle">
+                      Scorecard: 
+                    </h3>
+                    <p>
+                    ' . $s['scorecard'] . '
+                    </p>
+                    <h3 class="post-subtitle">
+                      Score: 
+                    </h3>
+                    <p>
+                    ' . $s['score'] . '
                     </p>
                   </a>
                 </div>
                 <div class="clearfix">
-            <a class="btn btn-secondary" href="notes.php?id='. $s['id'].'&action=edit">Edit</a>
-            <a class="btn btn-secondary" href="notes.php?id='. $s['id'].'&action=delete">Delete</a>
+            <a class="btn btn-secondary" href="review.php?id=' . $s['id'] . '&action=edit">Edit</a>
+            <a class="btn btn-secondary" href="review.php?id=' . $s['id'] . '&action=delete">Delete</a>
           </div>
               </div>
             </div>
-          </div>
-          <hr>';
+          </div>';
         }
 
         return $string;

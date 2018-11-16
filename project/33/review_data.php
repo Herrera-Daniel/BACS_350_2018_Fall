@@ -166,10 +166,10 @@
                 <p><label>Reviewers Email:</label> &nbsp; <input type="text" name="review_email" value="' . $review . '"></p>
                 <p><label>Designers Email:</label> &nbsp; <input type="text" name="design_email" value="' . $design . '"></p>
                 <p><label>Absolute Url:</label> &nbsp; <input type="text" name="url" value="' . $url . '"></p>
-                <p><label>Scorecard:</label> &nbsp; <textarea name="scorecard" value="' . $scorecard . '"></textarea></p>
-                <p><label>Score:</label> &nbsp; <input type="text" name="url" value="' . $score . '"></p>
+                <p><label>Scorecard:</label> &nbsp; <textarea name="scorecard" rows = "10" cols = "40">' . $scorecard . '</textarea></p>
+                <p><label>Score:</label> &nbsp; <input type="text" name="score" value="' . $score . '"></p>
                 <p><input type="submit" value="Edit Review"/></p>
-                <input type="hidden" name="action" value="create">
+                <input type="hidden" name="action" value="update">
             </form>
             </div>
     </div>
@@ -262,7 +262,7 @@
                       Absolute Url: 
                     </h3>
                     <p>
-                    ' . $s['url'] . '
+                    <a href=' . $s['url'] . '>Link To Site</a>
                     </p>
                     <h3 class="post-subtitle">
                       Scorecard: 
@@ -279,7 +279,7 @@
                   </a>
                 </div>
                 <div class="clearfix">
-            <a class="btn btn-secondary" href="review.php?id=' . $s['id'] . ' &action=edit">Edit</a>
+            <a class="btn btn-secondary" href="review.php?id=' . $s['id'] . '&action=edit">Edit</a>
             <a class="btn btn-secondary" href="review.php?id=' . $s['id'] . '&action=delete">Delete</a>
           </div>
               </div>
