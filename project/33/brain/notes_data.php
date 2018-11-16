@@ -119,19 +119,19 @@
     function add_note_view() {
         global $page;
         return '
-<div class="container">
+        <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="post-preview">
-                <h3>Add note</h3>
-                <form action="' . $page . '" method="post">
-                    <p><label>Title:</label> &nbsp; <input type="text" name="title"></p>
-                    <p><label>Body:</label> &nbsp; <textarea name="body"></textarea></p>
-                    <p><input type="submit" value="Add Note"/></p>
-                    <input type="hidden" name="action" value="create">
-                </form>
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+            <h3>Add note</h3>
+            <form action="' . $page . '" method="post">
+                <p><label>Title:</label> &nbsp; <input type="text" name="title"></p>
+                <p><label>Body:</label> &nbsp; <textarea name="body"></textarea></p>
+                <p><input type="submit" value="Add Note"/></p>
+                <input type="hidden" name="action" value="create">
+            </form>
             </div>
-        </div>
+    </div>
     </div>
 </div>
         ';
@@ -147,18 +147,18 @@
         return '
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="post-preview">
-                <h3>Edit note</h3>
-                <form action="' . $page . '" method="post">
-                    <p><label>Title:</label> &nbsp; <input type="text" name="title" value="' . $title . '"></p>
-                    <p><label>Body:</label> &nbsp; <textarea name="body">' . $body . '</textarea></p>
-                    <p><input type="submit" value="Save Record"/></p>
-                    <input type="hidden" name="action" value="update">
-                    <input type="hidden" name="id" value="' . $id . '">
-                </form>
-            </div>
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+            <h3>Edit note</h3>
+            <form action="' . $page . '" method="post">
+                <p><label>Title:</label> &nbsp; <input type="text" name="title" value="' . $title . '"></p>
+                <p><label>Body:</label> &nbsp; <textarea name="body">' . $body . '</textarea></p>
+                <p><input type="submit" value="Save Record"/></p>
+                <input type="hidden" name="action" value="update">
+                <input type="hidden" name="id" value="' . $id . '">
+            </form>
         </div>
+    </div>
     </div>
 </div>
         ';
@@ -238,10 +238,11 @@
                     <p>
                     ' . $s['body'] . '
                     </p>
+                  </a>
                 </div>
                 <div class="clearfix">
-                <a class="btn btn-secondary" href="notes.php?id='. $s['id'] .'&action=edit">Edit</a>
-                <a class="btn btn-secondary" href="notes.php?id='. $s['id'] .'&action=delete">Delete</a>
+            <a class="btn btn-secondary" href="notes.php?id='. $s['id'].' &action=edit">Edit</a>
+            <a class="btn btn-secondary" href="notes.php?id=1&action=delete">Delete</a>
           </div>
               </div>
             </div>
