@@ -13,6 +13,7 @@
 
     <!-- Custom styles for this template -->
     <link href="form-validation.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
   <body class="bg-light" data-gr-c-s-loaded="true">
 
@@ -22,7 +23,7 @@
         <h2>Checkout form</h2>
         <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
       </div>
-
+      
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -72,10 +73,13 @@
               </div>
             </div>
           </form> -->
-          <button type="submit" class="btn btn-secondary">Redeem</button>
+         
+
         </div>
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Billing address</h4>
+
+          <a class="btn btn-secondary" href="#">Edit</a>
           <form class="needs-validation" novalidate="">
             <div class="row">
               <div class="col-md-6 mb-3">
@@ -156,6 +160,8 @@
                   Zip code required.
                 </div>
               </div>
+
+              
             </div>
             <hr class="mb-4">
             <div class="custom-control custom-checkbox">
