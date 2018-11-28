@@ -3,6 +3,7 @@
     require_once 'views.php';
     require_once 'db.php';
     require_once 'log.php';
+    require_once 'auth.php';
 
     $page = 'slides.php';
 
@@ -231,7 +232,7 @@
                 <div class="slides">
                     <section data-markdown
                              data-separator="\n---\n" data-separator-vertical="\n--\n">
-                        <textarea data-template><?php include '.$body.'; ?></textarea>
+                        <textarea data-template>'.$body.'</textarea>
                     </section>
                 </div>
             </div>

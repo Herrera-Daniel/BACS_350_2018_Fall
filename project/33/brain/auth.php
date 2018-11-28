@@ -23,13 +23,13 @@
         global $db;
         $action = filter_input(INPUT_GET, 'action');
         if ($action == 'signup') {
-            return sign_up_form();
+            return sign_up_form('index.php');
         }
         if ($action == 'login') {
-            return login_form('private.php');
+            return login_form('index.php');
         }
         if ($action == 'logout') {
-            return logout('private.php?action=login');
+            return logout('index.php?action=login');
         }
         
         $action = filter_input(INPUT_POST, 'action');
@@ -109,18 +109,26 @@
         $log->log("Show Login Form");
         
         return '
-            <div class="card">
-                <h3>Login</h3>
-            
-                <form action="' . $page . '" method="post">
+        <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+            <h2 class="post-title">
+              Login
+            </h2>
+            <form action="' . $page . '" method="post">
                     <p><label>Email:</label> &nbsp; <input type="text" name="email"></p>
                     <p><label>Password:</label> &nbsp; <input type="password" name="password"></p>
                     <p><input type="submit" value="Login" class="btn"></p>
                     <input type="hidden" name="action" value="validate">
                     <input type="hidden" name="next" value="' . $page . '">
                 </form>
-            </div>
-            ';
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+    ';
     }
 
 
@@ -138,10 +146,14 @@
         $log->log("Show Sign Up Form");
         
         return '
-            <div class="card">
-                <h3>Sign Up</h3>
-            
-                <form action="' . $page . '" method="post">
+        <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+            <h2 class="post-title">
+            Sign Up
+            </h2>
+            <form action="' . $page . '" method="post">
                     <p><label>Email:</label> &nbsp; <input type="text" name="email"></p>
                     <p><label>Password:</label> &nbsp; <input type="password" name="password"></p>
                     <p><label>First Name:</label> &nbsp; <input type="text" name="first"></p>
@@ -151,7 +163,11 @@
                     <input type="hidden" name="next" value="' . $page . '">
                     
                 </form>
-            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
             ';
     }
 

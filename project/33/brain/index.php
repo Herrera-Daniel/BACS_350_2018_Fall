@@ -14,7 +14,8 @@
 
     // Convert the Markdown into HTML
     $Parsedown = new Parsedown();
-    $content = '<hr> <div class="container">
+    $content = handle_auth_actions();
+    $content .= '<hr> <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
