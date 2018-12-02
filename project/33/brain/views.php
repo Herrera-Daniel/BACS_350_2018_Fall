@@ -109,6 +109,13 @@
         header("Cache-Control: no-store, no-cache, must-revalidate");
         return render_template("page.html", $settings);
     }
+    // render_page -- Create one HTML page from a template.
+    function render_page_slides($settings) {
+        header("Pragma: no-cache");
+        header("Expires: 0");
+        header("Cache-Control: no-store, no-cache, must-revalidate");
+        return render_template("slide.html", $settings);
+    }
 
 
     // render_page_content -- Create page content from cards

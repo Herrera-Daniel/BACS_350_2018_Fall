@@ -17,7 +17,7 @@
         
         try {
             $title  = filter_input(INPUT_POST, 'title');
-            $author  = filter_input(INPUT_POST, 'design_email');
+            $author  = filter_input(INPUT_POST, 'author');
             $body = filter_input(INPUT_POST, 'body');
             date_default_timezone_set("America/Denver");
             $date  = date('Y-m-d g:i:s a');
@@ -129,9 +129,9 @@
         <div class="post-pslide">
             <h3>Add slide</h3>
             <form action="' . $page . '" method="post">
-                <p><label>Slide Title:</label> &nbsp; <input type="text" name="title"></p>
-                <p><label>Slide Author:</label> &nbsp; <input type="text" name="author"></p>
-                <p><label>Slide Body:</label> &nbsp; <textarea name="body" rows = "10" cols = "40"></textarea></p>
+                <p><label>Title:</label> &nbsp; <input type="text" name="title"></p>
+                <p><label>Author:</label> &nbsp; <input type="text" name="author"></p>
+                <p><label>Body:</label> &nbsp; <textarea name="body" rows = "30" cols = "40"></textarea></p>
                 <p><input type="submit" value="Add slide"/></p>
                 <input type="hidden" name="action" value="create">
             </form>
@@ -157,11 +157,12 @@
         <div class="post-pslide">
             <h3>Add Presentation</h3>
             <form action="' . $page . '" method="post">
-                <p><label>Title:</label> &nbsp; <input type="text" name="slide_email" value="' . $title . '"></p>
-                <p><label>Author:</label> &nbsp; <input type="text" name="design_email" value="' . $author . '"></p>
-                <p><label>Body:</label> &nbsp; <textarea name="scorecard" rows = "10" cols = "40">' . $body . '</textarea></p>
+                <p><label>Title:</label> &nbsp; <input type="text" name="title" value="' . $title . '"></p>
+                <p><label>Author:</label> &nbsp; <input type="text" name="author" value="' . $author . '"></p>
+                <p><label>Body:</label> &nbsp; <textarea name="body" rows = "30" cols = "40">' . $body . '</textarea></p>
                 <p><input type="submit" value="Edit slide"/></p>
                 <input type="hidden" name="action" value="update">
+                <input type="hidden" name="id" value="' . $id . '">
             </form>
             </div>
     </div>
@@ -193,7 +194,7 @@
 
         // GET
         $action = filter_input(INPUT_GET, 'action');
-        if (empty($action)) {                                  
+        if (empty($action)) {                               
             $log->log('slide READ');                      // READ
             return slide_list_view(query_slide());
         }
@@ -205,10 +206,6 @@
             $log->log('slide DELETE');                    // DELETE
             return delete_slide($id);
         }
-        if ($action == 'view') {
-            $log->log('slide VIEW');                    // DELETE
-            return render_slides(get_slide($id));
-        }
         if ($action == 'edit' and ! empty($id)) {
             $log->log('slide Edit View');
             return edit_slide_view(get_slide($id));
@@ -216,7 +213,7 @@
     }
 
     function render_slides($record){
-        $body = $recod['body'];
+        $body = $record['body'];
         $string = '';
         $string .= '<html>
         <head>
@@ -231,7 +228,7 @@
                 <div class="slides">
                     <section data-markdown
                              data-separator="\n---\n" data-separator-vertical="\n--\n">
-                        <textarea data-template><?php include '.$body.'; ?></textarea>
+                        <textarea data-template>'.$body.'</textarea>
                     </section>
                 </div>
             </div>
@@ -255,16 +252,15 @@
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-pslide">
               <h1 class="post-title">
-              Slides
+              Presentations
               </h1>
             </div>
           </div>
         </div>
       </div>
-      <hr>
             ';
         foreach ($list as $s) {
-            $string .= '<div class="container">
+            $string .= '<hr> <div class="container">
             <div class="row">
               <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-pslide">
@@ -296,7 +292,7 @@
                 <div class="clearfix">
             <a class="btn btn-secondary" href="slides.php?id=' . $s['id'] . '&action=edit">Edit</a>
             <a class="btn btn-secondary" href="slides.php?id=' . $s['id'] . '&action=delete">Delete</a>
-            <a class="btn btn-secondary" href="slides.php?id=' . $s['id'] . '&action=view">View Slides</a>
+            <a class="btn btn-secondary" href="slide_view.php?id=' . $s['id'] . '">View Presentation</a>
           </div>
               </div>
             </div>

@@ -93,21 +93,27 @@
 
     // Update the database
     function update_review () {
-        $id    = filter_input(INPUT_POST, 'id');
-        $title = filter_input(INPUT_POST, 'title');
-        $body  = filter_input(INPUT_POST, 'body');
+        $id = filter_input(INPUT_POST, 'id');
+        $review_email  = filter_input(INPUT_POST, 'review_email');
+        $design_email  = filter_input(INPUT_POST, 'design_email');
+        $url  = filter_input(INPUT_POST, 'url');
+        $scorecard  = filter_input(INPUT_POST, 'scorecard');
+        $score  = filter_input(INPUT_POST, 'score');
         date_default_timezone_set("America/Denver");
         $date  = date('Y-m-d g:i:s a');
         
         // Modify database row
-        $query = "UPDATE review SET title=:title, body=:body, date=:date WHERE id = :id";
+        $query = "UPDATE review SET review_email=:review_email, design_email=:design_email, url=:url, scorecard=:scorecard, score=:score, date=:date WHERE id = :id";
         global $db;       
         $statement = $db->prepare($query);
 
         $statement->bindValue(':id', $id);
-        $statement->bindValue(':title', $title);
-        $statement->bindValue(':body', $body);
         $statement->bindValue(':date', $date);
+        $statement->bindValue(':review_email', $review_email);
+        $statement->bindValue(':design_email', $design_email);
+        $statement->bindValue(':url', $url);
+        $statement->bindValue(':scorecard', $scorecard);
+        $statement->bindValue(':score', $score);
 
         $statement->execute();
         $statement->closeCursor();
@@ -170,6 +176,7 @@
                 <p><label>Score:</label> &nbsp; <input type="text" name="score" value="' . $score . '"></p>
                 <p><input type="submit" value="Edit Review"/></p>
                 <input type="hidden" name="action" value="update">
+                <input type="hidden" name="id" value="' . $id . '">
             </form>
             </div>
     </div>
