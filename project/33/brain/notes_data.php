@@ -3,6 +3,7 @@
     require_once 'views.php';
     require_once 'db.php';
     require_once 'log.php';
+    require_once 'auth.php';
 
     $page = 'notes.php';
 
@@ -118,6 +119,7 @@
     // Show form for adding a record
     function add_note_view() {
         global $page;
+        require_login('notes.php');
         return '
         <div class="container">
     <div class="row">
@@ -144,6 +146,7 @@
         $title  = $record['title'];
         $body = $record['body'];
         global $page;
+        require_login('notes.php');
         return '
 <div class="container">
     <div class="row">

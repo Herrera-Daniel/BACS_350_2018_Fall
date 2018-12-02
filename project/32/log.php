@@ -41,11 +41,7 @@
         try {
             // Create a string for "now"
             date_default_timezone_set("America/Denver");
-<<<<<<< HEAD
             $date = date('Y-m-d g:i:s a');
-=======
-            $date = date('Y-m-d g:i a');
->>>>>>> ec36bab4dd9144d04b02b934363ec127aa69e8e8
             
             // Add database row
             $query = "INSERT INTO log (date, text) VALUES (:date, :text);";

@@ -3,6 +3,7 @@
     require_once 'views.php';
     require_once 'db.php';
     require_once 'log.php';
+    require_once 'auth.php';
 
     $page = 'review.php';
 
@@ -130,6 +131,11 @@
     // Show form for adding a record
     function add_review_view() {
         global $page;
+        $login = handle_auth_actions();
+    if (empty($login)) {
+      return require_login('notes.php');
+    }
+    else{
         return '
         <div class="container">
     <div class="row">
@@ -149,7 +155,7 @@
     </div>
     </div>
 </div>
-        ';
+        ';}
     }
 
 

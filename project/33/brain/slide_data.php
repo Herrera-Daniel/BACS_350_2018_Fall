@@ -3,6 +3,7 @@
     require_once 'views.php';
     require_once 'db.php';
     require_once 'log.php';
+    require_once 'auth.php';
 
     $page = 'slides.php';
 
