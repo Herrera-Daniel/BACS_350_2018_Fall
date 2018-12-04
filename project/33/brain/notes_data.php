@@ -209,6 +209,7 @@
 
     // render_table -- Create a bullet list in HTML
     function note_list_view ($list) {
+        
         global $page;
         $string = '';
         $string.= '<div class="container">
@@ -218,6 +219,9 @@
               <h1 class="post-title">
               Notes
               </h1>
+              <p>
+                      Please login to Add, Edit, or Delete Notes 
+                    </p>
             </div>
           </div>
         </div>
@@ -225,6 +229,19 @@
       <hr>
             ';
         foreach ($list as $s) {
+            $string2 = "";
+        if(logged_in())
+        {   $string2 .= '
+            <a class="btn btn-secondary" href="notes.php?id='. $s['id'].'&action=edit">Edit</a>
+            <a class="btn btn-secondary" href="notes.php?id='. $s['id'].'&action=delete">Delete</a>
+            <a class="btn btn-secondary" href="notes.php?action=logout">Logout</a>
+            ';}
+        else {
+
+            $string2 .= '
+            <a class="btn btn-secondary" href="notes.php?action=login">Login</a>';
+
+            } 
             $string .= '<div class="container">
             <div class="row">
               <div class="col-lg-8 col-md-10 mx-auto">
@@ -238,14 +255,13 @@
                     <h3 class="post-subtitle">
                       Body:
                     </h3>
-                    <pre>
+                    <p>
                     ' . $s['body'] . '
-                    </pre>
+                    </p>
                   </a>
                 </div>
                 <div class="clearfix">
-            <a class="btn btn-secondary" href="notes.php?id='. $s['id'].'&action=edit">Edit</a>
-            <a class="btn btn-secondary" href="notes.php?id='. $s['id'].'&action=delete">Delete</a>
+                '. $string2 .'
           </div>
               </div>
             </div>

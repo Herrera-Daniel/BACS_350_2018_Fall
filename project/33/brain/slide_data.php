@@ -122,6 +122,7 @@
 
     // Show form for adding a record
     function add_slide_view() {
+        require_login('slides.php');
         global $page;
         return '
         <div class="container">
@@ -255,12 +256,28 @@
               <h1 class="post-title">
               Presentations
               </h1>
+              <p>
+                      Please login to Add, Edit, or Delete Slides 
+                    </p>
             </div>
           </div>
         </div>
       </div>
             ';
         foreach ($list as $s) {
+            $string2 = "";
+        if(logged_in())
+        {   $string2 .= '
+            <a class="btn btn-secondary" href="slides.php?id=' . $s['id'] . '&action=edit">Edit</a>
+            <a class="btn btn-secondary" href="slides.php?id=' . $s['id'] . '&action=delete">Delete</a>
+            <a class="btn btn-secondary" href="slides.php?action=logout">Logout</a>';
+            }
+        else {
+
+            $string2 .= '
+            <a class="btn btn-secondary" href="review.php?action=login">Login</a>
+            <a class="btn btn-secondary" href="slide_view.php?id=' . $s['id'] . '">View Presentation</a>';
+            }
             $string .= '<hr> <div class="container">
             <div class="row">
               <div class="col-lg-8 col-md-10 mx-auto">
@@ -291,9 +308,7 @@
                     </pre>
                 </div>
                 <div class="clearfix">
-            <a class="btn btn-secondary" href="slides.php?id=' . $s['id'] . '&action=edit">Edit</a>
-            <a class="btn btn-secondary" href="slides.php?id=' . $s['id'] . '&action=delete">Delete</a>
-            <a class="btn btn-secondary" href="slide_view.php?id=' . $s['id'] . '">View Presentation</a>
+            '.$string2.'
           </div>
               </div>
             </div>

@@ -7,7 +7,8 @@
     
     
     // Page content
-  $content = render_slide_view();
+    $content = handle_auth_actions();
+    $content .= render_slide_view();
   $content .=  '<hr> <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">

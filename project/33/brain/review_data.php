@@ -130,12 +130,8 @@
 
     // Show form for adding a record
     function add_review_view() {
+        require_login('review.php');
         global $page;
-        $login = handle_auth_actions();
-    if (empty($login)) {
-      return require_login('notes.php');
-    }
-    else{
         return '
         <div class="container">
     <div class="row">
@@ -155,7 +151,7 @@
     </div>
     </div>
 </div>
-        ';}
+        ';
     }
 
 
@@ -242,6 +238,9 @@
               <h1 class="post-title">
               Reviews
               </h1>
+              <p>
+                      Please login to Add, Edit, or Delete Reviews 
+                    </p>
             </div>
           </div>
         </div>
@@ -249,6 +248,18 @@
       <hr>
             ';
         foreach ($list as $s) {
+            $string2 = "";
+        if(logged_in())
+        {   $string2 .= '
+            <a class="btn btn-secondary" href="review.php?id='. $s['id'].'&action=edit">Edit</a>
+            <a class="btn btn-secondary" href="review.php?id='. $s['id'].'&action=delete">Delete</a>
+            <a class="btn btn-secondary" href="review.php?action=logout">Logout</a>
+            ';}
+        else {
+
+            $string2 .= '
+            <a class="btn btn-secondary" href="review.php?action=login">Login</a>';
+            } 
             $string .= '<div class="container">
             <div class="row">
               <div class="col-lg-8 col-md-10 mx-auto">
@@ -292,8 +303,7 @@
                   </a>
                 </div>
                 <div class="clearfix">
-            <a class="btn btn-secondary" href="review.php?id=' . $s['id'] . '&action=edit">Edit</a>
-            <a class="btn btn-secondary" href="review.php?id=' . $s['id'] . '&action=delete">Delete</a>
+            '.$string2.'
           </div>
               </div>
             </div>

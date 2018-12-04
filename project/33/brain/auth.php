@@ -23,13 +23,13 @@
         global $db;
         $action = filter_input(INPUT_GET, 'action');
         if ($action == 'signup') {
-            return sign_up_form('index.php');
+            return sign_up_form(basename($_SERVER['PHP_SELF']));
         }
         if ($action == 'login') {
-            return login_form('index.php');
+            return login_form(basename($_SERVER['PHP_SELF']));
         }
         if ($action == 'logout') {
-            return logout('index.php?action=login');
+            return logout(basename($_SERVER['PHP_SELF']));
         }
         
         $action = filter_input(INPUT_POST, 'action');

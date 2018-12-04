@@ -4,11 +4,13 @@
     require_once 'log.php';
     require_once 'files.php';
     require_once 'review_data.php';
+    require_once 'auth.php';
     
     
     // Page content
 
-    $content = render_review_view();
+    $content = handle_auth_actions();
+    $content .= render_review_view();
     $content .=  '<hr> <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
